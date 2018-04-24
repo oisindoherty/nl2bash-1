@@ -15,6 +15,7 @@ data:
 	
 	# Convert raw parallel corpus to features taken by the neural network
 	./bash-run.sh --process_data --dataset bash
+	touch done_data.txt
 	
 decode:
 	# Decode candidate outputs of the baseline systems given the pretrained models (on the dev set)
@@ -26,12 +27,14 @@ decode:
 	./bash-copy-partial-token.sh --decode $(gpu)
 	./bash-char --decode $(gpu)
 	./bash-copy-char.sh --decode $(gpu)	
+	touch done_decode.txt
 	
 gen_evaluation_table:
 	# Generate dev set (manual) evaluation result table
 	## Add '--test' to the end of the command to generate the test set (manual) evaluation result table
 	./bash-token.sh --gen_manual_evaluation_table
-	
+	touch done_gen_evaluation_table.txt
+
 gen_auto_evaluation_table:
 	# Generate dev set automatic evaluation result table
 	## Add '--test' to the end of the command to generate the test set (automatic) evaluation result table
@@ -46,5 +49,7 @@ train:
 	./bash-copy-partial-token.sh
 	./bash-char
 	./bash-copy-char.sh
+	touch done_train.txt
 
 results: train decode gen_evaluation_table
+	touch done_results.txt

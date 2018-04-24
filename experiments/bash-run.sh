@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Set up path to CUDA library
-source ~/.profile
+#source ~/.profile
 
-export PYTHONPATH=`pwd`'/..'
+export PYTHONPATH=`pwd`'/..:'${PYTHONPATH}
 
 ARGS=${@:1}
 
