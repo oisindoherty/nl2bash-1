@@ -25,7 +25,7 @@ decode:
 	./bash-copy.sh --decode $(gpu)
 	./bash-partial-token.sh --decode $(gpu)
 	./bash-copy-partial-token.sh --decode $(gpu)
-	./bash-char --decode $(gpu)
+	./bash-char.sh --decode $(gpu)
 	./bash-copy-char.sh --decode $(gpu)	
 	touch done_decode.txt
 	
@@ -47,7 +47,7 @@ train:
 	./bash-copy.sh
 	./bash-partial-token.sh
 	./bash-copy-partial-token.sh
-	./bash-char
+	./bash-char.sh
 	./bash-copy-char.sh
 	touch done_train.txt
 
