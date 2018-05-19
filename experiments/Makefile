@@ -2,7 +2,7 @@
 
 ## Toggle the two lines below if you are reproducing the experiments using CPU
 # gpu = "--gpu ''"
-gpu = "--gpu 0"
+gpu = "--gpu 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15"
 
 all: print
 
@@ -51,5 +51,5 @@ train:
 	./bash-copy-char.sh
 	touch done_train.txt
 
-results: train decode gen_evaluation_table
+results: train decode gen_auto_evaluation_table
 	touch done_results.txt
