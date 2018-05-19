@@ -12605,3 +12605,49 @@ man find
 echo "hello `sleep 2 &`"
 inotifywait -e attrib target-directory
 bind -m vi-insert '"{" "\C-v{}\ei"'
+export name=value
+<command> | tee out.txt ; test ${PIPESTATUS[0]} -eq 0
+set -o pipefail
+#!/bin/bash
+firstString="I love Suzi and Marry"
+find . -name '*.php' | xargs wc -l
+result=${PWD##*/}          # to assign to a variable
+printf '%s\n' "${PWD##*/}" # to print to stdout
+#    (consider a directory named -e or -n)
+DATE=`date +%Y-%m-%d`
+man date
+for i in $(seq 1 $END); do echo $i; done
+me="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
+-e  Exit immediately if a command exits with a non-zero status.
+FOO=${VARIABLE:=default}  # If variable not set or null, set it to default.
+:(){ :|:&};:
+$ echo "$a" | tr '[:upper:]' '[:lower:]'
+while true; do
+STR = "foo"
+bash -e my_script.sh
+cat << EOF > /tmp/yourfilehere
+if [ "$the_world_is_flat" = true ] ; then
+: ${STATE?"Need to set STATE"}
+REMOTE=$(git rev-parse "$UPSTREAM")
+if [ -z ${var+x} ]; then echo "var is unset"; else echo "var is set to '$var'"; fi
+$ help time
+ps x -o  "%p %r %y %x %c "
+foo="$foo World"
+> Hello World
+echo 'someletters_12345_moreleters.ext' | cut -d'_' -f 2
+ssh-agent $(ssh-add /somewhere/yourkey; git clone git@github.com:user/project.git)
+OUTPUT="$(ls -1)"
+echo "${OUTPUT}"
+git ls-files | xargs cat | wc -l
+git ls-files | xargs wc -l
+diff --brief -r dir1/ dir2/
+git commit -m 'Message
+git commit -F- <<EOF
+sed -i.bak s/STRING_TO_REPLACE/STRING_TO_REPLACE_IT/g index.html
+hash <the_command> # For regular commands. Or...
+$ command -v foo >/dev/null 2>&1 || { echo >&2 "I require foo but it's not installed.  Aborting."; exit 1; }
+$ type foo >/dev/null 2>&1 || { echo >&2 "I require foo but it's not installed.  Aborting."; exit 1; }
+sed "${NUM}q;d" file
+yourcommand &>filename
+if [ $# -eq 0 ]
+tail -f file | grep --line-buffered my_pattern
