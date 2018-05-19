@@ -12608,19 +12608,14 @@ when using vi-insert keymap bind command "\C-v{}\ei" to key "{"
 Defining a variable with or without export
 Pipe output and capture exit status in Bash
 Pipe output and capture exit status in Bash
-Replace one substring for another string in shell script
-Replace one substring for another string in shell script
 How to count all the lines of code in a directory recursively?
-Get current directory name (without full path) in a Bash script
 Get current directory name (without full path) in a Bash script
 Get current directory name (without full path) in a Bash script
 YYYY-MM-DD format date in shell script
 YYYY-MM-DD format date in shell script
 How do I iterate over a range of numbers defined by variables in Bash?
 How do I know the script file name in a Bash script?
-What does set -e mean in a bash script?
 Assigning default values to shell variables with a single command in bash
-Why is whitespace sometimes needed around metacharacters?
 Converting string to lower case in Bash
 How do I prompt for Yes/No/Cancel input in a Linux shell script?
 Command not found error in Bash variable assignment
@@ -12633,7 +12628,6 @@ How to check if a variable is set in Bash?
 Get program execution time in the shell
 What's the best way to send a signal to all members of a process group?
 How to concatenate string variables in Bash
-How to concatenate string variables in Bash
 Extract substring in Bash
 Specify private SSH-key to use when executing shell command?
 How to set a variable to the output of a command in Bash?
@@ -12644,7 +12638,6 @@ Given two directory trees, how can I find out which files differ?
 Add line break to 'git commit -m' from the command line
 Add line break to 'git commit -m' from the command line
 sed command find and replace in file and overwrite file doesn't work, it empties the file
-Check if a program exists from a Bash script
 Check if a program exists from a Bash script
 Check if a program exists from a Bash script
 Bash tool to get nth line from a file
