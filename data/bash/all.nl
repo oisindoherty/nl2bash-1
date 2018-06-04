@@ -1,4 +1,4 @@
-(BSD specific) Display process information twice, waiting one second between each, filtering out the header line.
+D specific) Display process information twice, waiting one second between each, filtering out the header line.
 (GNU specific) Calculte and output amount of CPU load taken by all processes belonging to user 'abc'.
 (GNU specific) Display cumulative CPU usage over 5 seconds.
 (GNU specific) Display info on most CPU-intensive processes once and exit.
@@ -12644,3 +12644,79 @@ Bash tool to get nth line from a file
 Redirect stderr and stdout in Bash
 Check existence of input argument in a Bash shell script
 How to 'grep' a continuous stream?
+How to check if a file contains a specific string using Bash
+How to gzip all files in all sub-directories into one compressed file in bash
+Shell/Bash Command to get nth line of STDOUT
+Command to get time in milliseconds
+Longest line in a file
+Longest line in a file
+How to create nonexistent subdirectories recursively using Bash?
+Bash script processing commands in parallel [duplicate]
+How to copy a file to multiple directories using the gnu cp command
+Copy folder recursively, excluding some folders
+Random number from a range in a Bash Script
+How do I list the functions defined in my shell?
+Iterate over a list of files with spaces
+Open and write data to text file using bash/shell scripting
+How to generate random number in Bash?
+Temporarily change current working directory in bash to run a command [duplicate]
+Open and write data to text file using bash/shell scripting
+How to generate random number in Bash?
+Delete files older than 10 days using shell script in Unix [duplicate]
+Delete files older than 10 days using shell script in Unix [duplicate]
+List files with certain extensions with ls and grep
+Save file to specific folder with curl command [closed]
+Remove slash from the end of a variable
+Ubuntu says bash: ./program Permission denied [closed]
+Viewing full output of PS command
+How to assign the output of a Bash command to a variable? [duplicate]
+How to sort a file in-place
+Reload .profile in bash shell script (in unix)?
+Only get hash value using md5sum (without filename)
+Sorting data based on second column of a file
+UNIX export command [closed]
+unix - head AND tail of file
+How to parse XML in Bash?
+Select random lines from a file in bash [duplicate]
+Shell Script - remove first and last quote (") from a variable
+How can I convert tabs to spaces in every file of a directory?
+How can I convert tabs to spaces in every file of a directory?
+Changing default shell in Linux [closed]
+Linux: copy and create destination dir if it does not exist
+Check folder size in Bash
+Check folder size in Bash
+Check folder size in Bash
+Difference between two directories in Linux
+Difference between two directories in Linux
+Difference between two directories in Linux
+Concatenating multiple text files into a single file in Bash
+Concatenating multiple text files into a single file in Bash
+How to join multiple lines of file names into one with custom delimiter?
+How to join multiple lines of file names into one with custom delimiter?
+How to join multiple lines of file names into one with custom delimiter?
+How to pass in password to pg_dump?
+How to represent multiple conditions in a shell if statement?
+bash/fish command to print absolute path to a file
+With Bash Scripting, how can I suppress all output from a command?
+With Bash Scripting, how can I suppress all output from a command?
+How to resolve symbolic links in a shell script
+How to create a cron job using Bash automatically without the interactive editor?
+How to convert a string to lower case in Bash?
+How do I know the script file name in a Bash script?
+Aborting a shell script if any command returns a non-zero value?
+Count number of lines in a git repository
+How to determine the current shell I'm working on?
+How to call shell script from another shell script?
+How to count all the lines of code in a directory recursively?
+How to count all the lines of code in a directory recursively?
+YYYY-MM-DD format date in shell script
+How to 'grep' a continuous stream?
+Replace one substring for another string in shell script
+Replace one substring for another string in shell script
+Assigning default values to shell variables with a single command in bash
+Redirect stderr and stdout in Bash
+Redirect stderr and stdout in Bash
+How to check if a variable is set in Bash?
+How to check if a variable is set in Bash?
+Bash tool to get nth line from a file
+
