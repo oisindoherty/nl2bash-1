@@ -273,6 +273,7 @@ def get_automatic_evaluation_metrics(grouped_dataset, prediction_list, vocabs, F
     top_k_cms = np.zeros([len(grouped_dataset), top_k])
     top_k_bleu = np.zeros([len(grouped_dataset), top_k])
 
+    max_prediction_len = -1
     for data_id in xrange(len(grouped_dataset)):
         _, data_group = grouped_dataset[data_id]
         sc_str = data_group[0].sc_txt.strip()
@@ -295,6 +296,8 @@ def get_automatic_evaluation_metrics(grouped_dataset, prediction_list, vocabs, F
                 print("GT Target {}: ".format(j + 1) + command_gt.strip())
         num_eval += 1
         predictions = prediction_list[data_id]
+        if predictions:
+           max_prediction_len = max(len(predictions), max_prediction_len)
         for i in xrange(len(predictions)):
             pred_cmd = predictions[i]
             pred_ast = cmd_parser(pred_cmd)
@@ -339,7 +342,7 @@ def get_automatic_evaluation_metrics(grouped_dataset, prediction_list, vocabs, F
         print("Top 1 Match (whole-string) = %.3f" % top_cmd_acc[0])
         print("Average top 1 Template Match Score = %.3f" % top_cms[0])
         print("Average top 1 BLEU Score = %.3f" % top_bleu[0])
-    if len(predictions) > 1:
+    if max_prediction_len > 1:
         top_temp_acc[1] = np.max(top_k_temp_correct[:, :3], 1).mean()
         top_cmd_acc[1] = np.max(top_k_str_correct[:, :3], 1).mean()
         top_cms[1] = np.max(top_k_cms[:, :3], 1).mean()
@@ -349,7 +352,7 @@ def get_automatic_evaluation_metrics(grouped_dataset, prediction_list, vocabs, F
             print("Top 3 Match (whole-string) = %.3f" % top_cmd_acc[1])
             print("Average top 3 Template Match Score = %.3f" % top_cms[1])
             print("Average top 3 BLEU Score = %.3f" % top_bleu[1])
-    if len(predictions) > 3:
+    if max_prediction_len > 3:
         top_temp_acc[2] = np.max(top_k_temp_correct[:, :5], 1).mean()
         top_cmd_acc[2] = np.max(top_k_str_correct[:, :5], 1).mean()
         top_cms[2] = np.max(top_k_cms[:, :5], 1).mean()
@@ -359,7 +362,7 @@ def get_automatic_evaluation_metrics(grouped_dataset, prediction_list, vocabs, F
             print("Top 5 Match (whole-string) = %.3f" % top_cmd_acc[2])
             print("Average top 5 Template Match Score = %.3f" % top_cms[2])
             print("Average top 5 BLEU Score = %.3f" % top_bleu[2])
-    if len(predictions) > 5:
+    if max_prediction_len > 5:
         top_temp_acc[3] = np.max(top_k_temp_correct[:, :10], 1).mean()
         top_cmd_acc[3] = np.max(top_k_str_correct[:, :10], 1).mean()
         top_cms[3] = np.max(top_k_cms[:, :10], 1).mean()
@@ -383,12 +386,12 @@ def get_automatic_evaluation_metrics(grouped_dataset, prediction_list, vocabs, F
 
 def load_all_model_predictions(grouped_dataset, FLAGS, top_k=1,
                                tellina=True,
-                               token_seq2seq=True,
-                               token_copynet=True,
-                               char_seq2seq=True,
-                               char_copynet=True,
-                               partial_token_seq2seq=True,
-                               partial_token_copynet=True,):
+                               token_seq2seq=False,
+                               token_copynet=False,
+                               char_seq2seq=False,
+                               char_copynet=False,
+                               partial_token_seq2seq=False,
+                               partial_token_copynet=False,):
     """
     Load predictions of multiple models.
 
