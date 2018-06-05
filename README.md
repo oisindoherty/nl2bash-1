@@ -14,6 +14,11 @@ Specifically, it contains the following components:
 3. A bash command parser which parses a bash command into an abstractive syntax tree, developed on top of  [bashlex](https://github.com/idank/bashlex).
 4. A set of domain-specific natural language processing tools, including a regex-based sentence tokenizer and a bash-domain named entity recognizer.
 
+As of June 4th, 2018, the repository also contains three derivations of 
+component #1. One contains additional data that went through a more stringent
+verification process, one removes some erroneous one-liners from the original
+dataset, and one applies both the addition and subtraction operations.
+
 ## Experiment Setup
 
 ### Install TensorFlow
