@@ -1,0 +1,542 @@
+nl prefix prefix file.txt|||nl -s "prefix" file.txt|||nl -v prefix file.txt|||
+find /volume1/uploads -name "*.mkv" -exec mv {} /volume/uploads \;|||find /volume1/uploads -name "*.mkv" -exec mv {} /volume1/uploads \;|||find /volume1/uploads -name "*.mkv" -print0 | xargs -0 -I {} mv {} /volume1/uploads|||
+crontab -u cannot file1 | grep -v file2 | xargs -n 1 -I {} echo file2 {}|||crontab -l | grep file1 | xargs -I {} echo file2 {}|||crontab -l | grep file1 | grep -v file2 | xargs -n 1 -I {} echo file2 {}|||
+diff -q -r /media/incoming/music/ /media/incoming/music/|||diff -q /media/incoming/music/ /media/incoming/music/|||diff -r -q /media/incoming/music/ /media/incoming/music/|||
+rsync -a -v /path/to/application.ini source_host|||rsync -a -v -z /path/to/application.ini source_host|||rsync -a -v -z "/path/to/application.ini" source_host|||
+scp -r user@host.remoted.from:/path/to/local/storage /path/to/local/storage|||scp -r user@host.remoted.from:/path/to/local/storage user@host.remoted.from:/path/to/local/storage|||scp -N user@host.remoted.from:/path/to/local/storage|||
+rsync -a -v fileToCopy /some/nonExisting/dirToCopyTO ssh.myhost.net|||rsync -a fileToCopy /some/nonExisting/dirToCopyTO ssh.myhost.net|||rsync -a -v -z fileToCopy /some/nonExisting/dirToCopyTO ssh.myhost.net|||
+rsync -a -v -P foo/bar/baz.c remote:/tmp/|||rsync -a --relative foo/bar/baz.c remote:/tmp/|||rsync -a -v -R foo/bar/baz.c remote:/tmp/|||
+find /path/to/directory/* -maxdepth 1 -type d -print0 | xargs -0 -I {} tar -c -v -f /path/to/directory/* {}|||find /path/to/directory/* -maxdepth 1 -type d -print0 | xargs -0 -I {} tar -c -v -f .tar.gz {}|||find /path/to/directory/* -maxdepth 1 -type d -print0 | xargs -0 -I {} tar -c -v -z -f .tar.gz {}|||
+find ~/ -name app1 -prune -or -name app1 -print|||find .|||find ./|||
+find . -mtime -30 -print|||find . -mtime -30 -exec tar -u -f 30.tar {} \;|||find . -mtime -30 -exec tar -u -f archive.tar {} \;|||
+rsync -a -v tata tata tata2|||rsync -a -v tata tata2|||rsync -a -v tata tata2 tata|||
+rsync -a -P -P "$i" /iscsi|||rsync -a -v -P "$i" /iscsi|||rsync -a -P -p $i /iscsi|||
+find /fss/fin/fi/outfile/outfile/outfile/outfile.tar.gz -maxdepth 1 -type d | xargs -I {} tar -c -v -f /fss/fin/fi/outfile.tar.gz {}|||find /fss/fin/fi/fi/outfile/outfile/outfile.tar.gz -maxdepth 1 -type d | xargs -I {} tar -c -v -f /fss/fin/fi/outfile.tar.gz {}|||find /fss/fin/fi/outfile/outfile/outfile/outfile/outfile.tar.gz -maxdepth 1 -type d | xargs -I {} tar -c -v -f /fss/fin/fi/outfile.tar.gz {}|||
+ssh -N -L IP:IP /root/K|||scp -p IP:IP /root/K IP StrictHostKeyChecking=no|||ssh -N -L IP:IP StrictHostKeyChecking=no|||
+find . -name "*.php" -exec ls -l -d {} \;|||find . -name "*.php" -exec echo {} \;|||find . -name "*.php" -print0 | xargs -0 -I {} ls {}|||
+find . -exec echo {} \;|||find . -name "*.5" -exec echo {} \; -exec echo {} \;|||find . -name "*.txt" -exec echo {} \; -exec echo {} \;|||
+echo -n "$FILES" | md5sum|||cat "$FILES" | md5sum|||echo "$FILES" | md5sum|||
+find /path -type f -exec md5sum {} \;|||find /path -type f -exec cat {} \; -exec echo {} \;|||find /path -type f -exec cat {} \; -exec cat {} \;|||
+md5sum "${my_iso_file}" | md5sum|||md5sum "${my_iso_file}"|||md5sum "${mymy_iso_file}" | md5sum|||
+find . -exec chown xx {} \;|||find . -exec chown owner:xx {} \;|||find . -exec chown xx:xx {} \;|||
+find /var/www/html/ -type d -exec chown 775 {} \;|||cd /var/www/html/|||find /var/www/html/ -type d -exec chmod 775 {} \;|||
+find . -type d -exec chown username {} \;|||find . -type d -print0 | xargs -0 -I {} chown username {}|||find . -type d -print0 | xargs -0 -I {} chown :username {}|||
+find . -type f -exec chown username {} \;|||find . -type f -print0 | xargs -0 -I {} chown username {}|||find . -type f | xargs -I {} chown username {}|||
+chgrp www-data /home/www-user/php_user.sh|||chgrp www-data /home/www-user_user_user.sh|||chgrp www-data /home/www-user/php_user_user.sh|||
+chgrp groupb myprog|||chgrp groupb groupb|||chgrp myprog myprog|||
+chgrp god public|||chgrp private public|||chgrp god private|||
+find . -group root -exec chgrp temp {} \;|||find . -group root -exec chown root:temp {} \;|||find . -group temp -exec chgrp root:temp {} \;|||
+chown el my_test_expect.exp|||chown el my_test_expect_expect.exp|||chown el file_test_expect.exp|||
+chown /vol whoami|||chown $USER /vol|||chown vol /vol|||
+find . -type d -exec chmod g=r {} \;|||find . -type d -exec chmod 0 {} \;|||find . -type d -exec chmod a=r {} \;|||
+find . -type f -exec chmod 644 {} \;|||find . -type f | xargs -I {} chmod 644 {}|||find . -type f -print0 | xargs -0 -I {} chmod 644 {}|||
+chmod 640 $(find ./ -type f -print)|||find . -type f -exec chmod 664 {} \;|||find . -type f -exec chmod 500 {} \;|||
+find $d -type d -exec chmod 755 {} \;|||find "$d" -type d -exec chmod 755 {} \;|||find "$d" -type d -print0 | xargs -0 -I {} chmod 755 {}|||
+grep "$file" "$file"|||grep -n "$file" "$file"|||grep $file | grep $file|||
+diff current.log current.log | grep previous.log|||comm -2 -3 current.log previous.log|||diff current.log current.log|||
+find . -name "*.header" -exec diff {} /tmp/master \;|||find . -name "*.pl" -exec diff {} /tmp/master \;|||find . -name "*.txt" -exec diff {} /tmp/master \;|||
+$file|||$file | xargs -I {} gzip {}|||$file | xargs -I {} bzip2 {}|||
+find "$FILE" -mtime 30 -exec compress -r {} \;|||find $FILE -mtime 30 -exec compress -r {} \;|||find $FILE -mtime +30 -exec compress -r {} \;|||
+find $FILE -mtime +30 -exec compress -r {} \;|||find "$FILE" -mtime +30 -exec compress -r {} \;|||find "$FILE" -mtime +30 -exec gzip {} \;|||
+$* | xargs -I {} gzip -9 {}|||$* | xargs -I {} tar -c -v -f $*|||bzip2 -k $*|||
+gzip gzip.|||echo gzip. | tr '\n' 'gzip.' | tr '\n' 'gzip.'|||gzip | tr '\n' 'gzip.'|||
+paste -s -d "input.txt" input.txt|||cat input.txt | xargs -n 1 -I {} echo input.txt {}|||tail -n +2 input.txt | xargs -n 1 -I {} echo input.txt {}|||
+rsync -R -v some_file_name destination_directory|||cp -R some_file_name destination_directory|||rsync -a -v -R some_file_name destination_directory|||
+find . -name xyz.c -print0 | xargs -0 -I {} cp -a --target-directory=xyz.c {}|||find . -name "*c" | xargs -I {} cp xyz.c {}|||find . -name xyz.c | xargs -I {} cp -a --target-directory=xyz.c {}|||
+find . -name "*failed.ipynb" -exec cp {} ./fails \;|||find . -name '*failed.ipynb' -print0 | xargs -0 -I {} cp -a -v --target-directory=./fails {}|||find . -name "*failed.ipynb" -print0 | xargs -0 -I {} cp -a -v --target-directory=./fails {}|||
+cp -n -r target_dir target_dir|||cp -n -r target_dir dir_dir|||cp -n -r $(dirname $0)|||
+find . | grep -v "include" | xargs -I {} cp {} /usr/include|||find . | grep -v 'include' | xargs -I {} cp {} /usr/include|||find . | grep gtest | xargs -I {} cp {} /usr/include|||
+find . -maxdepth 1 -type d | wc -l|||find . -mindepth 1 -maxdepth 1 -type d | wc -l|||find . -maxdepth 1 -type d -print0 | xargs -0 -I {} wc -l {}|||
+find . -type f | wc -l|||find . -type f -exec wc -l {} \;|||find . -type f -exec ls -l {} \; | wc -l|||
+jobs -l -p | grep -o '[__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK]?' | wc -l|||jobs -l -p | grep -o '[__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK]?'|||jobs -l -p | grep -o '[__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK]?' | wc -l|||
+find /mount/point -maxdepth 1 -type d | wc -l|||find /mount/point -type d | wc -l|||find /mount/point -type d -print0 | xargs -0 -I {} wc -l {}|||
+find xargstest/ -name file?? | wc -l|||find xargstest/ -name 'file??' | wc -l|||find xargstest/ -name file?? -exec wc -l {} \;|||
+cat *R1*.fastq.gz | wc -l|||cat *R1**.fastq.gz | wc -l|||zcat *R1**.fastq.gz | wc -l|||
+find . -name "*$PYTHONPID" -exec wc -l {} \;|||find . -name "$PYTHONPID" -exec wc -l {} \;|||find . -name $PYTHONPID -exec wc -l {} \;|||
+echo "1 1 2 2 2 5" | wc -l|||echo '1 1 2 2 2 5' | wc -l|||echo '1 1 2 2 2 5 5' | wc -l|||
+find . -name '*.gz' -exec wc -l {} \;|||find . -name "*.gz" -exec wc -l {} \;|||find . -name '*.gz' -print0 | xargs -0 -I {} wc -l {}|||
+mktemp $(dirname "$1")|||mktemp -d $(dirname "$1")|||mktemp -d $(echo "$1" | tr '[A-Z]' '[A-Z]' '[a-z]')|||
+find /home/ -type f -exec ls -s {} \; -exec ls -l {} \;|||find $HOME -name '*[__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK]*'|||find $HOME -name '*.[__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK]?'|||
+find . ! -name "*.gzip" -exec ls -l -d {} \;|||find . ! -name "*.gzip" -print0 | xargs -0 -I {} tar -c -v -f __SP__UNK.tar {}|||find . ! -name "*.gzip" -exec tar -c -v -f __SP__UNK.tar {} \;|||
+find . -type d -exec ls -l {} \;|||find . -type d -exec ls -l -d {} \;|||find . -type d -exec ls -a -l {} \;|||
+ssh-keygen -t rsa|||ssh-keygen -t rsa -f ~/.ssh/id_rsa|||bzip2 -d -c ~/.ssh/id_rsa | xargs -I {} tar -c -v -z -f ~/.ssh/id_rsa {}|||
+ssh-keygen -f ~/.ssh/apache-rsync|||ssh -i ~/.ssh/apache-rsync file~/.ssh/apache-rsync|||ssh -t ~/.ssh/apache-rsync|||
+find . -type f -name "*.jpg" -exec ln -s {} dir \;|||find dir -type f -exec ln -s {} \;|||find . -type f -name "*.jpg" -exec ln -s -f {} \;|||
+ln -s ../config/init|||ln -s "../config/init"|||ln -s "../config/init" | xargs -I {} ln -s {} ../config/init|||
+ln -s "$ORACLE_HOME/include" "/usr/include/oracle/11.2/client"|||ln -s "$ORACLE_HOME/include" "$ORACLE_HOME/include"|||ln -s "$ORACLE_HOME/include" "/usr/include/oracle/11.2.2/client"|||
+ln -s "$PATH" "$tmpdir/bam"|||ln -s "$PATH" "$PATH"|||ln -s "$tmpdir" "$tmpdir/bam"|||
+ln -s .bash_profile .bash_profile|||ln -s .bash_profile .bashrc_profile|||ln -s ".bash_profile" .bash_profile|||
+ln -s /usr/share/my-editor-editor-executable /usr/bin/my-editor|||ln -s /usr/share/my-editor-editor-executable /usr/share/my-editor-executable|||ln -s /usr/bin/my-editor /usr/bin/my-editor|||
+find ./ -type l -name "public_html" -exec ln -s {} current_webroot \;|||ln -s current_html current_html|||find ./ -type l -name "public_html" -exec ln -s {} current_html \;|||
+ln -s newtarget|||ln -s temp newtarget|||ln -s temp temp|||
+ln -s ~/bin/subl ~/bin/subl ~/bin/subl|||ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ~/bin/subl|||ln -s "/Applications/Sublime Text 2.app/SharedSupport/bin/subl" ~/bin/subl|||
+ln -s /cygdrive/c/Program Files /cygdrive/c/Program Files|||ln -s /cygdrive/c/Program Files /cygdrive/c/ProgramFiles Files|||ln -s "/cygdrive/c/Program Files" /cygdrive/c/Program Files|||
+find . -size +100k -exec ls -l {} \;|||find . -size +100k -exec ls -l -d {} \;|||find . -size +100k -and -size +100k -exec ls -l {} \;|||
+tar -c -z -f my_large_file_2 my_large_file_2 | split -b 1024m - my_split.tgz_|||tar -c -z -f my_large_file_2 my_large_file_2 | split -b 1024m - myfiles_split.tgz_|||tar -c -z -f my_large_file_1 my_large_file_2 | split -b 1024m - my_split.tgz_|||
+mkdir ~/.npm-global|||mkdir $(echo .npm-global | xargs -I {} mkdir ~/.npm-global {})|||mkdir ~/.npm-global {}|||
+mkdir dir2|||find dir2 -type d -name "dir2" -exec mkdir -p -- dir2/ {} \;|||find dir2 -type d -name "dir2" -exec mkdir -p -- "dir2" {} \;|||
+mkdir -p full/path|||mkdir -p full full/path|||mkdir -p full/full/path|||
+find /your/project -name "*CONFIGFILE*" -type f -exec ln -s {} /your/project \;|||find /your/project -type f ! -name "*CONFIGFILE*" -exec ln -s {} /your/project \;|||find /your/project -name "*CONFIGFILE*" -type f -print0 | xargs -0 -I {} ln -s {} /your/project|||
+find /usr/local/symlinks -type f -mtime +5 -exec ln -s {} /usr/local/symlinks \;|||find /usr/local/symlinks -type f -mtime +5 -exec ln -s {} nr \;|||ln -s /usr/local/symlinks incoming|||
+ln -s /your/dest/dir/ txt.mrg|||ln -s /your/source/dir/ txt.mrg|||ln -s /your/source/dir/ txt.mrg/|||
+$(mktemp)|||$(mktemp -u)|||$(mktemp | tr '[A-Z]' '[A-Z]' '[a-z]')|||
+find . -name .pyc -exec rm {} \;|||find . -name "*.pyc" -exec rm {} \;|||find . -name .pyc -delete|||
+find . -name .svn -delete|||find . -name .svn -exec rm -r -f {} \;|||find . -name .svn | xargs -I {} rm -r -f {}|||
+find /usr/ports/packages -type l -xtype l -delete|||find /usr/ports/packages -type l -name "*.broken" -exec rm -f {} \;|||find /usr/ports/packages -type l -delete|||
+find * -maxdepth 1 -name "b" -exec rm {} \;|||find * -name b -exec rm {} \;|||find * -maxdepth 1 -name 'b' -exec rm {} \;|||
+find . -nouser -exec rm {} \;|||find . -nouser | xargs -0 -I {} rm {}|||find . -nouser -ls -exec rm {} \;|||
+find . -delete|||find | xargs -I {} rm {}|||find . -exec rm {} \;|||
+find . -type f -name "IMAGE1806.jpg" -exec rm -f {} \;|||find . -type f -name "IMAGE.jpg" -exec rm -f {} \;|||find . -type f -name IMAGE1806.jpg -exec rm {} \;|||
+find $save_path -type f -mtime +1 -exec rm {} \;|||find "$save_path" -mindepth 1 -maxdepth 1 -type f -name 'sess_' -exec rm {} \;|||find "$save_path" -mindepth 1 -maxdepth 1 -type f -mmin +1 -exec rm {} \;|||
+find /tmp -name tmp -print0 | xargs -0 -I {} rm {}|||find /tmp -name tmp -type f -print0 | xargs -0 -I {} rm {}|||find /tmp -name tmp -exec rm {} \;|||
+find /var/tmp/stuff -mtime +90 -delete|||find /var/tmp/stuff -mtime +90 -exec rm {} \;|||find /var/tmp/stuff -mtime +90 | xargs -I {} rm {}|||
+find dir -name '2015*' -exec rm {} \;|||find dir -name "2015*" -exec rm {} \;|||find dir -name "2015*" -exec rm -f {} \;|||
+find $LOCATION_FILES -type f -mtime +360 -exec rm {} \;|||find $LOCATION_FILES -name "$REQUIRED_FILES" -mmin +360 -exec rm {} \;|||find $LOCATION_FILES -name "$REQUIRED_FILES" -mmin +360 -delete|||
+find . -inum [inode-number] -exec rm {} \;|||find . -inum [inode-number] -delete|||find . -inum inode -exec rm {} \;|||
+diff -r -q dir1 dir2|||diff -r -q dir2 dir2|||diff -q dir1 dir2|||
+shopt -u nocasematch|||echo $(shopt -u nocasematch | xargs -I {} shopt -u {} | xargs -I {} shopt -u {} | tr '[A-Z]' '[a-z]')|||echo $(shopt -u nocasematch | xargs -I {} shopt -u {} | xargs -I {} shopt -u {} | tr '[:upper:]' '[:digit:]')|||
+shopt -u nullglob|||echo nullglob | grep -o '[__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK]'|||echo nullglob | grep -o '[__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][a-z]'|||
+find . -name file -ls|||find . -name file -exec ls -a -l {} \;|||find . -name file -exec ls -l {} \;|||
+find / -size +1M -exec ls -l {} \;|||find / -size +1M -exec ls {} \;|||find / -size +1M -exec ls -l -h {} \;|||
+find /home -type d -atime +3|||find /tmp -atime +3|||find /tmp -type d -atime +3|||
+find /var/adm/logs/morelogs/ -type f -name "*.user" ! -name "*.user" -print|||find /var/adm/logs/morelogs/ -type f -name "*.user" -print|||find /var/adm/logs/morelogs/ -type f -name "*.user" -exec mv {} /var/adm/logs/morelogs/ \;|||
+find . -maxdepth 1|||find . -maxdepth 1 -type f|||find . -maxdepth 1 -print|||
+find . -name .git -prune -or -name .git -print|||find . ! -name "states_to_csv.pl"|||find . \( -name states_to_csv.pl -or -name .git -prune -or -name '*.git' -or -name '*.git' \) -print|||
+find . -mtime -14|||find . -mtime -14 -print|||find . -name "????????????????????????????????????????????????"|||
+find . -name test -prune|||find . -name test -prune -or -print|||find . -name test -prune -or -name "test*" -print|||
+find /Users/Me/Desktop -perm -o+rw|||find /Users/Me/Desktop -perm -4000 -exec chmod 644 {} \;|||find /Users/Me/Desktop -perm -4000 -exec chmod __SP__UNK {} \;|||
+find /etc/srv -not \( -path ./srv/tftp/pxelinux.cfg -or -path /etc/mtab \) -prune -or -print|||find /etc/srv -not \( -path "./srv/tftp/pxelinux.cfg" ! -path "./srv/pxelinux/pxelinux.cfg" \)|||find /etc/srv -not \( -path "./srv/tftp/pxelinux.cfg" -or -path "./srv/pxelinux.cfg" \)|||
+find /mp3-collection -size +10M -iname "Metallica"|||find /mp3-collection -size +10M -iname "Metallica*"|||find /mp3-collection -size +10M -name "Metallica*"|||
+find $a|||find /a/|||find /a|||
+find /usr -nouser -or -nogroup|||find /usr -size localc -print|||find /usr -newermt "Feb local"|||
+find . -name "*.header" -or -name "*.header"|||find . -name "*.header" -or -name "*.cpp" -print|||find . -name "*.header" -or -name "*.cpp"|||
+find . -maxdepth 1 -name "*.jpg"|||find . -maxdepth 1 -name '*.jpg'|||find . -maxdepth 1 -iname "*.jpg"|||
+grep funcname $(uname -r)|||find / -type f -name "*funcname*" -exec grep -H funcname {} \;|||find / -type f -name "*funcname*" -exec grep -H "funcname" {} \;|||
+grep $(uname -r)|||grep UTRACE $(uname -r)|||cat *.UTRACE | grep '^UTRACE-time' | xargs -n 1 -I {} grep 'UTRACE-time' {}|||
+find / -type f -iname "*.mp3"|||find / -type f -name "*.mp3" -atime +1|||find / -atime +1 -iname "*.mp3"|||
+find ./subdirectory/ -type f|||find /home/the___SP__UNK -type f|||find ./ -type f|||
+find . -type f -atime 7|||find . -mtime 7 -type f|||find .|||
+find . -mmin 60 -type f|||find . -type f -mmin 60|||find . -mmin 60 -type f -printf "%f %__SP__UNK %__SP__UNK %__SP__UNK %__SP__UNK %__SP__UNK %__SP__UNK %__SP__UNK %__SP__UNK %__SP__UNK %__SP__UNK %__SP__UNK %__SP__UNK %__SP__UNK\n"|||
+find /home/user/demo -type f -perm 0777 -print|||find /home/user/demo -perm 777 -print|||find /home/user/demo -perm 777 -type f -print|||
+find image-fold -type f|||find image-fold -type f -exec echo {} \;|||find image-fold -type f | xargs -I {} echo {}|||
+find . -name "*.sqlite" -printf "%f\n"|||find . -name "*.sqlite"|||find . -name "*.sqlite" -exec echo {} \;|||
+find . -name "*.txt" -print|||find . -name "*.txt" -print -or -name "*.txt"|||find . -name "*.txt" -or -name "*.txt"|||
+cat myfile | xargs -I {} cat {}|||cat myfile | xargs -L 1 -I {} cat {}|||cat myfile | sort -n|||
+find . -maxdepth 1 -type f | wc -l|||find . -maxdepth 1 -type f -print0 | xargs -0 -I {} wc -l {}|||find . -maxdepth 1 -type f -printf '%f\n' | wc -c|||
+diff /tmp/test1 /tmp/test1|||diff /tmp/test1 /tmp/test1 /tmp/test2|||diff -r /tmp/test1 /tmp/test1 /tmp/test2|||
+diff -y /tmp/test1 /tmp/test1|||diff -y /tmp/test1 /tmp/test2|||diff -y /tmp/test1 /tmp/test2side-by-side|||
+echo "$host" | rev | cut -d '/' -f 4- | rev|||echo "$host" | rev | cut -d '/' -f 2- | rev|||echo $(hostname)|||
+echo $(cat /proc/$$/__SP__UNK)|||echo $(hostname)|||find . -exec echo {} \;|||
+find /dir/to/search/ -type d -name ".*" -ls|||find /dir/to/search/ -type d -name '.*' -ls|||find /dir/to/search/ -type d -name ".hidden" -ls|||
+find /dir/to/search/ -type f -name ".*" -ls|||find /dir/to/search/ -type f -name ".*" -exec ls -l {} \;|||find /dir/to/search/ -maxdepth 1 -type f -name '.*' -ls|||
+find . -type f -ctime -4 | xargs -I {} ls -l {}|||find . -type f -ctime +4 -exec ls -l {} \;|||find . -type f -ctime -4 -exec ls -l {} \;|||
+cat *.c | wc -l|||find . -name "*.c" | xargs -I {} wc -l {}|||find . -name '*.c' | xargs -I {} wc -l {}|||
+tree -p -u -g -f -i|||tree -p -u|||tree -p -u -g -v -f $(tree -i -f -i | xargs -I {} chmod go+w {})|||
+uname -s -r -v -m|||
+find / -type f -exec file {} \;|||find / -type f -print0 | xargs -0 -I {} file {}|||find / -type f -exec echo {} \;|||
+mount | grep flags|||mount | tr '\n' '\n' | tr '\n' '\n' | tr '\n' '\n' | xargs -I {} echo {}|||mount | tr '\n' '\n' | tr '\n' '\n' | tr '\n' '\n' | tr '\n' '\n'|||
+echo "Louis Theroux Stories Stories Stories Stories Stories" | rev | cut -c 4- | rev|||echo "Louis Theroux Stories Stories Stories Stories" | rev | cut -c 4- | rev|||echo "Louis Theroux Stories Stories Stories Stories Stories Stories" | rev | cut -c 4- | rev|||
+shopt -s cdable_vars|||shopt -s cdable_vars | xargs -I {} chmod -v cdable_vars {}|||shopt -s cdable_vars | xargs -I {} grep -o 'cdable_vars' {} | xargs -I {} chmod -v cdable_vars {}|||
+shopt -s nocasematch|||shopt -s "nocasematch[__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK]shopt"|||shopt -s "nocasematch[__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK]shopt"|||
+watch ls -l|||watch -n 2 ls -l|||watch ls -l | grep "ls -l"|||
+watch ls|||ls | xargs -I {} file {} | xargs -I {} file {} | xargs -I {} file {} | xargs -I {} file {}|||ls | xargs -I {} file {} | xargs -I {} file {} | xargs -I {} file {} | xargs -I {} grep "ls" {}|||
+watch -n 1 echo \-033[033[0m World\033[033[0-9|||watch -n 1 echo \-033[31[0m | head -n 2|||watch -n 1 echo \-033[31[0m World\033[033[0-9|||
+ssh $SERVER_str $SERVER_str|||ssh $SERVER_str $USER $SERVER_str|||echo "$cmd_str" | ssh $SERVER_str|||
+tar -x -v -z -f backup.tar.gz|||tar -x -v -f backup.tar.gz|||tar -x -v -v -f backup.tar.gz|||
+head -n 2|||head -n +2 bz2|||echo "$FILE" | cut -d '.' -f 2-|||
+
+cat /etc/group | tee /etc/group|||cat /etc/group | cut -d ' ' -f 1|||cat /etc/group | sort | uniq -c|||
+find /home/myhome/data/ARCHIVE/ -type f -name "*201512*" -exec mv {} /home/myhome/ARCHIVE/TempFolder/ \;|||find /home/myhome/data/ARCHIVE/ -type f -name "*201512*" -print0 | xargs -0 -I {} mv {} /home/myhome/ARCHIVE/TempFolder/|||find /home/myhome/data/ARCHIVE/ -type f -name "*201512*" -print0 | xargs -0 -I {} mv {} /home/myhome/ARCHIVE/TempFolder/|||
+find /var -name param1 -type f|||find /var -type f -name param1|||find /var -type f -name param1 -exec grep param1 {} \;|||
+find /path/to/your/directory -type f -name "*.avi" -exec cp --parents {} /path/to/specific/folder \;|||find /path/to/your/directory -type f -name '*.avi' -exec cp --parents {} /path/to/specific/folder \;|||find /path/to/your/directory -type f -name '*.avi.flv' -exec cp {} /path/to/specific/folder \;|||
+find . -name "*.o"|||find . -type f -name "*.o" -exec chmod 664 {} \;|||find . -name '*.o' -print0 | xargs -0 -I {} chmod 664 {}|||
+find . -type f -exec du -S -h {} + | sort -n -r | head - 10|||find . -type f -exec ls -s {} \; | sort -n | head - 10|||find . -type f -exec du -S -h {} + | sort -n | head - 10|||
+find . \( -name a.out -or -name '*.out' -or -name '*.object' \)|||find . \( -name a.out -or -name '*.out' -or -name '*.out' \)|||find . \( -name "a.out" -or -name "*.out" \)|||
+find $current_directory -name '*.wma'|||find "$current_directory" -name "*.wma"|||find $current_directory -name "*.wma"|||
+find . -type f -name "*.[ch]"|||find . -name *.[ch]|||find . -name "*.[ch]"|||
+find . -size +5120c -name "*.err"|||find . -type f -name "*.err" -size +5120c -print|||find . -size +5120c -iname "*.err"|||
+find . -name '*.ext' -printf '%h\n' | xargs -0 -I {} dirname {} | xargs -I {} dirname {}|||find . -name '*.ext' -printf '%h\n' | xargs -0 -I {} dirname {} | xargs -0 -I {} dirname {}|||find . -name '*.ext' -printf '%h\n' | xargs -I {} dirname {} | xargs -I {} dirname {}|||
+find /home/family/Music -name '*.m4a' -print|||find /home/family/Music -name "*.m4a" -print|||find /home/family/Music -name '*.m4a'|||
+mv "${INPUT_LOCATION}" ${OUTPUT_LOCATION}|||find ${INPUT_LOCATION} \; -name 'pdf.marker}' -exec mv {} ${OUTPUT_LOCATION} \;|||find ${INPUT_LOCATION} \; -name "pdf.marker}" -print0 | xargs -0 -I {} mv {} ${OUTPUT_LOCATION} {}|||
+find . -type f -name "*.py" | xargs -I {} grep "taken_terms.txt" {}|||find . -type f -name "*.py" | xargs -I {} grep "taken" {}|||find . -type f -name "*.py" | xargs -I {} grep -F 'taken_terms.txt' {}|||
+find / -user root -name *.txt | head|||find / -user root -name *.txt|||find / -user root -name root.txt | head|||
+find /root/of/where/files/are -name '*company*'|||find /root/of/where/files/are -name *company*|||find /root/of/where/files/are -name *company**|||
+find . -name "*fink*"|||find . -name '*fink*'|||find . -name *fink*|||
+find . -name '*shp*' -exec mv -t ../shp_all/ {} \;|||find . -name "*shp*" -exec mv {} ../shp_all/ \;|||find . -type d -name "*shp*" -exec mv {} ../shp_all/ \;|||
+find . -name *shp*|||find . -name "*shp*"|||find . -name '*shp*'|||
+find . -name "*.bak" -delete|||find . -name "*.bak" -exec rm {} \;|||find . -type f -name "*.bak" -delete|||
+find . -name *.gz|||find . -name "*.gz" -exec find {} -type f -and \( -name '*.gz' -or -name '*.gz' \) \;|||find . -type f -name "*.gz"|||
+find . -name "*.sh" -exec mv {} ~/back.scripts \;|||find . -name "*.sh" -print0 | xargs -0 -I {} mv {} ~/back.scripts|||find . -name '*.sh' -print0 | xargs -0 -I {} mv {} ~/back.scripts|||
+find /data -type f -perm 400 -exec echo {} \; -exec echo Modifying {} \;|||find /data -type f -perm 400 -print -exec cat {} \;|||find /data -type f -perm 400 -exec ls -l {} \;|||
+find /data -type f -perm 400 -exec chmod 755 {} \;|||find /data -type f -perm 400 -print -exec chmod 755 {} \;|||find /data -type f -perm 400 -print0 | xargs -0 -I {} chmod 755 {}|||
+find . -name "*.cpp" -print|||find . -name "*.cpp"|||find . -name "cppjavaheader"|||
+find . -name octave -type d|||find . -type d -name octave|||find . -name 'octave' -type d|||
+find / -type d -perm 0777|||find / -type d -perm 0777 -print|||find / -type d -perm 777|||
+find ${1:--.} -maxdepth 1 -type d|||find ${1:-.} -maxdepth 1 -type d|||find ${1:--.} -maxdepth 0 -type d|||
+find foldername -type d -exec chmod 755 {} \;|||find foldername -type d -exec chmod 755 {} \;|||find foldername -type d | xargs -I {} chmod 755 {}|||
+find . -type d -name uploads|||find . -type d -name "uploads"|||find . -type d -name 'uploads'|||
+find . -empty|||find . -empty | xargs -I {} find {} -type f -empty {}|||find . -empty -exec ls {} \;|||
+find . -iname dirname|||find . -iname "dirname"|||find . -iname 'dirname*'|||
+find images -name articles.jpg|||find images -name "articles.jpg"|||find images -iname "articles.jpg"|||
+find /usr/src -name fprintf.c -print|||find /usr/src -name "fprintf.c" -print|||find /usr/src -name fprintf.c|||
+find . -name "text"|||find . -name "text" -print|||find . -name 'text*'|||
+find /eserver6 -name orm.properties|||find /eserver6 -name "orm.properties"|||find /eserver6 /eserver6 -name orm.properties|||
+find . -user michel -print|||find . -user michel|||find . -user michel -exec ls -l {} \;|||
+find . -name 'app-*.log' -mmin -5|||find . -name "app-*.log" -mmin -5|||find . -name 'app-*-*.log' -mmin -5|||
+find . -name '*photo*'|||find . -name "*photo*"|||find . -name *photo*|||
+find $controlchars -ls|||find "$controlchars" ! -name "$controlchars"|||find "$controlchars" -name "$controlchars"|||
+find $dir -mtime -3|||find "$dir" -mtime -3|||find $dir -mtime +3|||
+find /home/baumerf/public_html/ -mmin -60 -not -name *.log|||find /home/baumerf/public_html/ -mmin -60 ! -name *.log|||find /home/baumerf/public_html/that/ -mmin -60 -not -name *.log|||
+find ./export/home/someone/ -exec mv {} ///somehost/tmp/ \;|||find ./export/home/someone/ -print0 | xargs -0 -I {} mv {} ://somehost/tmp/|||find ./export/home/someone/ -exec mv {} ://somehost/tmp/ \;|||
+find . -exec echo _backup_dir {} \;|||find . -print0 | xargs -0 -I {} echo _backup_dir {}|||find . -exec basename {} \; | tee _backup_dir|||
+find . -size +10M|||find . -size +10M -exec du -h -h {} +|||find . -size +10M -exec ls -l -h {} \;|||
+find . -atime -1|||find . -atime '1[__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK]?'|||find . -atime '1[__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK]?'|||
+find . -inum 16187430 -exec mv {} new-test-file-name {} \;|||find . -inum 16187430 -exec mv {} new-test-file-name \;|||find . -inum 16187430 -exec mv {} new-test-file-name {} +|||
+find /home/wsuNID/ -name "file1.txt"|||find /home/wsuNID/ -name file1.txt|||find / -name file1.txt -print0 | xargs -0 -I {} grep "file1.txt" {}|||
+mv $(find . -name *~)|||mv $(find . -name '*~')|||mv $(find . -name "*~")|||
+find . -name "*.jpg" | wc -l|||find . -name '*.jpg' | wc -l|||find . -name "*.jpg" -exec wc -l \{\} \;|||
+find /dir1 -type f -exec basename {} \;|||find /dir1 -type f -exec echo {} \;|||find /dir1 -maxdepth 1 -type f -printf "%f\n"|||
+find . -not -path '*/\.*' -prune -or \( ! -name _backup_dir -prune -or -print \)|||find . -not -path '*/\.*' -prune -or \( -name ".*" -or -name "_backup_dir" \) -print|||find . -not -path '*/\.*' -prune -or \( -name ".*" -or -name "_backup_dir" \)|||
+find . ! -perm -444|||find . -type f ! -perm -444|||find . ! -readable -prune|||
+find . -size +10M -size -20M|||find . -size +10M -size -20M -print|||find . -size +10M -size -20M -exec ls -l {} \;|||
+find . -size -10k|||find . -size 'ck __SP__UNK 10 __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK'|||find . -size 'ck __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK'|||
+find . -newer document -print|||find . -newer /etc/timestamp -print|||find . -newer /dir/timestamp|||
+find . \( -name "опция_поисказначениезначениезначение" -or -name "опция_поиска" \) -print|||find . \( -name "опция_поисказначениезначениезначениезначениезначение" -or -name "опция_поиска" \) -print|||find . \( -name "опция_поисказначениезначениезначениезначениезначениезначение" -or -name "опция_поиска" \) -print|||
+find . -printf "%y %p\n"|||find . -type f -exec basename {} \; | sort -n -r|||find . -type f -printf "%s %p\n" | sort -n -r | cut -f 2- | sort -n|||
+find . -size +1M|||find . -size +1024M|||find . -size +1M -print|||
+find . -name "*.o" -exec echo {} \;|||find . -name "*.o" | xargs -I {} echo {}|||find . -name "*.o" -print0 | xargs -0 -I {} echo {}|||
+find . -cmin +60|||find . -ctime +2 -print|||find ./ -ctime +2|||
+find / -type f -name "*.txt" -size +5M|||find / \( -name '*.txt' -or -name '*.txt' \) -print|||find / \( -name "*.txt" -or -name "*.txt" \) -print|||
+find / -nouser|||find / -perm -u+w|||find / -perm -u+w,g+w|||
+find / -mtime +100|||find / -mtime +100 -print|||find / -mtime +100 -name "???????????????????????????????????????????"|||
+find /usr/app/etl/01/files_to_to_to_to_to_to_to_to_to_to_to_to_to_to/files_to_to_to_to_to_to_to|||find /usr/app/etl/01/files_to_to_to_to_to_to_to_to_to_to_to_to_to/files_to_to_to_to_to_to_to_to|||find /usr/app/etl/01/files_to_to_to_to_to_to_to_to_to_to_to_to_to_to_to/files_to_to_to_to_to_to|||
+find /path/to/dir -newer /path/to/dir|||find /path/to/dir -newermt "__SP__UNK specific"|||find /path/to/dir -newer specific|||
+find "$music" -print0 | xargs -0 -I {} echo {}|||find $music -print0 | xargs -0 -I {} echo {}|||find /music -print0 | xargs -0 -I {} echo {}|||
+find . -maxdepth 1 -mtime -1 -print|||find . -maxdepth 1 -mtime -1|||find . -maxdepth 1 -mmin -1 -print|||
+find . -maxdepth 1 -cmin +1 -name file|||find . -maxdepth 1 -ctime +1 -name file|||find . -mindepth 1 -ctime +1 -name file|||
+find . -user tommy -print|||find . -user tommy -printf "%f %__SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK %__SP__UNK\n"|||find . -user tommy -printf "%f %__SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK %__SP__UNK\n"|||
+find . -mtime +7|||find . -mtime +7 -print|||find . -mtime +7 -exec ls -l {} \;|||
+find . -mtime -12|||find . -type f -mtime -12|||find /etc -mtime -12|||
+find . -ctime +2 -ctime -2|||find . -type f -atime +2 -exec echo {} \;|||find . -mtime +2 -exec echo {} \;|||
+find . -mtime 2|||find . -daystart -mtime 2|||find . -mtime 2 | xargs -I {} tar -c -v -f $(date '1 days ago' {})|||
+find /usr -type f -print|||find /usr -type f|||find /usr -type f -exec ls -l {} \;|||
+find /somefolder -type f -iregex '\./$'|||find /somefolder./$ -type f -print0 | xargs -0 -I {} grep -i -l '\./$' {}|||find /somefolder -type f -iname '\./$'|||
+find /somefolder -type f -regex '\./$'|||find /somefolder -type f | grep '\./$'|||find /somefolder./$ -type f -exec grep -H '\./$' {} +|||
+mv error_log.[0-9]* mod_log.[0-9]* *|||mv error_log.[0-9]* mod_log.log.[0-9]* *|||mv error_log.[0-9]* mod_log.log.[0-9]* mod_log.log.[0-9]* *|||
+find . -mtime -1 -print|||find . -mtime -1|||find . -mtime -1 -type f -exec ls -l {} \;|||
+find /home/peter -name *~ -exec rm {} \;|||find /home/peter -name *~ -print0 | xargs -0 -I {} rm -r -f {}|||find /home/peter -name *~ | xargs -I {} rm -r -f {}|||
+find /home -name tecmint.txt|||find /home -name tecmint.txt -exec rm {} \;|||find /home -name tecmint.txt -exec ls -l {} \;|||
+find /home -user exampleuser -name "*.db"|||find /home -user 7 -name "*.db"|||find /home -user exampleuser -name *.db|||
+find ~/etc/motd -newer top|||find ~/etc/motd -type f -newer /etc/motd|||find ~/etc/motd -newer /etc/motd|||
+cd $(find . -name foo.mp4 -printf "%h\n")|||find . -name foo.mp4 -printf "%h\n"|||find . -name "foo.mp4" -printf "%h\n"|||
+find ./polkadots -name image.pdf -print0|||find ./polkadots -name image.pdf -print0 | xargs -0 -n 1 -I {} echo {}|||find ./polkadots -type f -name "image.pdf" -print0|||
+find . -mindepth 1 -maxdepth 1 -type d|||find . -mindepth 1 -maxdepth 1 -type d | xargs -I {} ls -l -d {}|||find . -mindepth 1 -maxdepth 1 -mindepth 1 -type d|||
+find / -name "*.mp3"|||find / -name "*.mp3" -print|||find / -name '*.mp3'|||
+find . -name "orm*"|||find . -name orm*|||find . -name 'orm*'|||
+find . -name \*.php -type f -exec grep -H -n 'pattern' {} \;|||find . -name \*.php -type f -exec grep -H -n "pattern" {} \;|||find . -name \*.php -type f -exec grep -H -n 'these' {} \;|||
+find . -type f -name "*.php"|||find . -name \*.php -type f|||find . \( -name "*.php" -or -name "*.php" -or -name "*.php" -or -name "*.php" -or -name "*.php" \)|||
+find /path -type f -exec rm {} \;|||find /path -type f -delete|||find /path -type f -print0 | xargs -0 -I {} rm {}|||
+find ~ -mmin -90 -type f|||find ~ -type f -mmin -90|||find ~ -type f -mtime -90|||
+find main- -type f|||find main-subdirectory -type f|||find main-js -type f|||
+find ~/container -mindepth 3 -type f -print0 | xargs -0 -I {} mv -t ~/container {}|||find ~/container -mindepth 3 -type f -exec mv {} ~/container \;|||find ~/container -mindepth 3 -type f -exec mv {} ./container \;|||
+find "$DIR" -type f -name "*.$TYPE"|||find $DIR -type f -name "*.$TYPE"|||find "$DIR" -type f -name "*.$TYPE" -exec grep -H "$TYPE" {} \;|||
+find ~/$folder -type f -name '*@*'|||find ~/$folder -type f | xargs -I {} grep @ {}|||find ~/$folder -type f -name "*@*"|||
+dirname "$path" | grep file | cut -d ' ' -f 1|||dirname "$path" | grep file | tr '[A-Z]' '[A-Z]' | tr '[A-Z]' '[A-Z]'|||dirname "$path" | grep file | tr '\n' '[A-Z]' | tr '[A-Z]' '[A-Z]'|||
+find /home/pat -name "*.teh"|||find /home/foo -name "*.teh"|||find /usr/local -name "*.teh"|||
+find . -name test.txt|||find . -name "test.txt"|||find . -iname test.txt|||
+find / -user root -name "*.txt"|||find / -user root -name "*.txt" -print|||find / -user root | head|||
+find . -name "*.txt" ! -path "*/.*" -prune -or \( -name "*.txt" -or -name "*.txt" \)|||find . -name "*.txt" ! -path "*/.*" -prune -or \( -name "*.txt" -or -name "*.txt" \) -print|||find . -name "*.txt" ! -path "*/.*" -prune -or \( -name "*.txt" -print \)|||
+find . -name "*.xml"|||find . -name "*.xml" -print|||find . -type f -name "*.xml"|||
+find . -name "*.zip"|||find . -name '*.zip'|||find . -name \*.zip|||
+find /home -xdev -samefile file1 -exec rm {} \;|||find /home -xdev -samefile file1 -exec rm {} +|||find /home -xdev -samefile file1 -print0 | xargs -0 -I {} rm {}|||
+find . -name blabla*|||find . -name "blabla*"|||find . -name 'blabla*'|||
+find . | xargs -I {} ls {}|||find . -print | xargs -I {} ls {}|||find . -print0 | xargs -0 -I {} ls {}|||
+find /some/dir -prune -empty -type d|||find /some/dir -maxdepth 0 -empty -type d|||find /some/dir -maxdepth 1 -empty -type d|||
+find . -type d -printf '%T@ %p\n' | sort -n | tail -n 1|||find . -type d -printf "%T@ %p\n" | sort -n | tail -n 1|||find . -type d -printf '%TY-%Tm-%Td %p\n'|||
+find /dir -type f -empty|||find /dir -maxdepth 1 -type f -empty|||find /dir -maxdepth 1 -empty -type f|||
+find wordpress -name '*js'|||find wordpress -name \*.js|||find wordpress -name '*.js'|||
+find / -name dateiname|||find / -iname dateiname|||find / -type f -exec file {} \;|||
+find / -name httpd.log|||find / -name httpd.log -print|||find / -iname httpd.log|||
+find /home/web-server/ -name "httpd.log"|||find /home/web-server/ -name httpd.log|||find /home/web-server/ -name httpd.log -print|||
+find . -anewer 23:59|||find . -type f -atime 23:59|||find . -atime +59|||
+find / -name document -print|||find / -name ext2 -prune -or -name document -print|||find / -name ext2 -prune -or -print|||
+find / -user tutonics -name file.txt|||find / -user tutonics -iname "file.txt"|||find / -user tutonics -iname file.txt|||
+find /usr /bin -name sar -print|||find /usr /bin -name sar -prune -or -print|||find /usr /bin -name sar -type f -print|||
+find . -newer CompareFile|||find ./ -newer CompareFile|||find . \( -newer CompareFile -or -name "CompareFile*" -or -name "CompareFile.jpg" {} \; -or -print \)|||
+find . -newer foo.txt|||find ./ -newer foo.txt|||find ./ -newer foo.txt -printf "%T@ __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK __SP__UNK\n"|||
+find . -size -500k|||find . -wholename './500?????????????????????????????????????????????'|||find . -wholename './500??????????????????????????????????????????????'|||
+find . -name "cxx_data.txt"|||find . -name "cxx_data.txt" | xargs -I {} grep "cxx_data.txt" {}|||find . -name "cxx_data.txt" | xargs -I {} grep cxx_data.txt {}|||
+find /etc -name ppp.conf|||find /etc -name "ppp.conf"|||find /etc -type f -name "ppp.conf"|||
+find / -perm 002|||find / -type f -perm 002 -exec ls -l {} \;|||find / -type f -perm 002 -exec chmod u=r,g=r,o= {} \;|||
+find . -type f -perm 777 -exec chmod 755 {} \;|||find . -perm 777 -exec chmod 755 {} \;|||find . -type f -perm 777 -print -exec chmod 755 {} \;|||
+find . -name "esxcfg-firewall*"|||find . -name esxcfg-firewall|||find . -iname "esxcfg-firewall"|||
+find ${userdir}/${i}/incoming -mtime +2 -type f -exec du -h {} \;|||find ${userdir}/${i}/incoming -mtime +2 -mtime +2|||find "${userdir}/${i}/incoming" -mtime +2 -type f -exec bzip2 {} \;|||
+find . -type f -exec ls -s {} \; | sort -n -r | head - 1|||find . -type f -exec ls -s {} \; | sort -n | head - 1|||find . -type f -exec ls -s {} \; | sort -n -r | head -n 1|||
+find . -type f -exec ls -s {} \; | sort -n -r | head - 1|||find . -type f -exec ls -s {} \; | sort -n | head - 1|||find . -type f -exec ls -s {} \; | sort -n -r -k 2 | head - 1|||
+groups|||groups | grep '[__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK]?'|||groups | grep '[__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK]?'|||
+find . -name "*.php" -type f -exec grep -H "abstract" {} \;|||find . -name "*.php" -exec grep --with-filename "abstractclass" {} \;|||find . -name "*.php" -type f -exec grep --with-filename 'abstractclass' {} \;|||
+pstree -p mysql|||ps -e -f | grep mysql|||ps -e -f | xargs -I {} dirname {} | xargs -I {} dirname {} | xargs -I {} dirname {} | xargs -I {} kill - 9 {}|||
+find b -type f -cmin -5 -exec cp {} c \;|||find b -cmin -5 -type f -exec cp {} c \;|||find . -type f -cmin -5 -exec cp {} c \;|||
+find . -type f -name "file*"|||find . -name file.git|||find . -path ./.git -prune -or -name file -print|||
+find . -type f -perm /222|||find . -type f -perm +6000 -type f -exec ls -l {} \;|||find . -type f -perm /u=r|||
+find . -type f -perm /a=x|||find . -perm -111 -type f|||find . -type f -perm -u=x|||
+find /path -type f -iname "????-?.???" -exec mv {} ?_[a.??? {} +|||find /path -type f -iname "????-?-9_*.???" -exec mv {} ?_[a.??? {} \;|||find /path -type f -iname "????-?.???" -exec mv {} ?_[a.??? {} \;|||
+find /root/suid.txt -newer /root/suid.txt|||find /root/suid.txt -newer /root/big.txt|||find . -newer /root/suid.txt|||
+shopt 'login' | grep login|||shopt '[__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK]*'|||shopt '[__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK]*'|||
+find . -type f -name "*.smallest"|||find . -type f -name "*.smallest" -exec ls -l -d {} \;|||find . -type f -name "*.smallest" -exec ls -l -t {} \;|||
+find . -name '[__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK]*'|||find . -name "*expression"|||find . -name '[__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK][__SP__UNK]*'|||
+find . -path ./photos/john_doe_doe -prune -or -name '*.jpg' -print|||find . -path ./photos/john_doe -prune -or -name '*.jpg' -print|||find . -name '*.jpg' -type f | xargs -I {} du -c -h {} | wc -l|||
+who | grep ab|||find . -name "*ab*" -exec grep -l "ab" {} \;|||find . -regextype posix-egrep -regex ".*ab[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"|||
+ln -s -f "$1" "$1"|||ln -s -f "$*" "$1"|||ln -s -f "$*" "$*"|||
+ln -s -f -n source_file_or_directory_name source_file_or_directory_name|||ln -s -f -n source_file_or_directory_name softlink_file_or_directory_name|||ln -s -f -n softlink_file_or_directory_name source_file_or_directory_name|||
+ln -s -f ~/staging ~/staging|||ln -s -f ~/staging ~/mirror|||ln -s -f ~/mirror ~/staging|||
+column -t -s list-of-entries.txt list-of-entries.txt|||column -t -s list-of-entries.txt new-entries.txt|||column -t -s list-of-entries.txt new-line.txt|||
+column -t -s list-of-entries.txt|||column -t list-of-entries.txt|||column -t -s '' list-of-entries.txt|||
+ifconfig "$1" | cut -d ' ' -f 1 | cut -d ' ' -f 2 | xargs -I {} echo {}|||ifconfig "$1" | cut -d ' ' -f 1 | cut -d ' ' -f 1 | cut -d ' ' -f 2 | xargs -I {} echo {}|||ifconfig "$1" | cut -d ' ' -f 1 | cut -d ' ' -f 1 | xargs -I {} echo {}|||
+ifconfig eth0 | grep -o -E 'eth0' | cut -d ' ' -f 2|||ifconfig eth0 | grep HWaddr | cut -d ' ' -f 2|||ifconfig eth0 | grep -o -P "(?<=inet addr:).*(?=__SP__UNK)"|||
+ifconfig en0 | grep HWaddr | cut -d ' ' -f 9|||ifconfig | grep -o -P "(?<=inet addr:).*?(?=__SP__UNK)"|||ifconfig en0 | grep inet | grep -v inet6|||
+rev file.txt | cut -d / -f 1 | rev|||rev file.txt | cut -d , -f 1 | rev|||rev file.txt | cut -d '/' -f 1 | rev|||
+shopt -u | grep -o 'dotglob' | tr '[A-Z]' 'rest_cmd'|||shopt -u | grep -o 'dotglob' | grep dotglob|||shopt -p | grep -o 'dotglob' rest_cmd|||
+join -v 5 tst.txt tst.txt|||tail -n +5 tst.txt | tail -n +5 | head -n 5|||tail -n +5 tst.txt | cut -d ' ' -f 4 | tail -n +5 | head -n 5|||
+find /home -xdev -samefile file1|||find /home -xdev -samefile file1 -exec ls -l {} \;|||find /home -type f -name file1 -exec ls -l {} \;|||
+find /home/*/public_html/ -type f -iwholename "*/wp-includes/version.php" -exec grep -H "Drupal" {} \;|||find /var/www/vhosts/*/httpdocs/ -type f -iwholename "*/wp-includes/version.php" -exec grep -H "Drupal" {} \;|||find /home/*/public_html/ -type f -iwholename "*/wp-includes/version.php" -exec grep -H "Drupal_VERSION" {} \;|||
+crontab c | grep "c"|||crontab -u c __SP__ARG_END|||crontab c | grep "c" | read c|||
+echo "no" | tee|||echo no | xargs -n 1 -I {} echo no {}|||echo no | tee __SP__UNK.list|||
+echo "1" | tee /tmp/to|||echo 1 /tmp/to | tee /tmp/to|||cat 1 /tmp/to | tee /tmp/to|||
+find . -name "*.java" -exec grep -l StringBuffer {} \;|||find . -name "*.java" -exec ls -l -d {} \;|||find . -type f -name "*.java" -exec grep -l StringBuffer {} \;|||
+find . -name "*.txt" -print0 | xargs -0 -I {} ls {}|||find . -name "*.txt" -exec ls -l {} \;|||find . -name "*.txt" -print|||
+find . -name .svn -exec ls -l -d {} \;|||find . -name "*.svn" -exec ls -l -d {} \;|||find . -name \*.svn -print0 | xargs -0 -I {} ls {}|||
+find . -name "*.available" -exec ls -l {} \;|||find . -name "*.available" -exec echo {} \;|||find . -name "*.available" -exec ls -l -d {} \;|||
+find . -maxdepth 1 -type d | xargs -I {} ls -l -d {}|||find . -maxdepth 1 -type d -print0 | xargs -0 -I {} ls -d {}|||find . -maxdepth 1 -type d -exec ls -l -d {} \;|||
+find . -type d|||find . -type d -exec ls -l -d {} \;|||find . -type d -exec ls -d {} \;|||
+ls -l -t -r "long-iso" | sort -n|||ls -l -t -r long-iso | tee long-iso|||ls -l -t -r long-iso | sort -n|||
+find . -size +10M -exec ls -l -h {} \;|||find . -size +10M -exec ls -l {} \;|||find . -size +10M -ls|||
+find . -maxdepth 1 -type d -exec ls -l -d {} \;|||find . -mindepth 1 -maxdepth 1 -type d -exec ls -l -d {} \;|||find . -type d -maxdepth 1|||
+cat myfile | tr -d '\n'|||echo $myfile | tr '[:upper:]' '[:digit:]' | tr '[A-Z]' '[a-z]'|||echo $(cat /var/myfile | tr '[A-Z]' '[a-z]')|||
+du -a --max-depth=1 | sort -n|||du -s -h * | sort -n|||du -a --max-depth=1 | sort -n | sort -k 1,1n|||
+find .|||find . -print0 | xargs -0 -I {} ls -l {}|||find . -print0 | tr '\n' '\n' | xargs -0 -I {} ls -l {}|||
+find .|||find . \( -name "*.txt" -or -name "*.txt" \)|||find . \( -name '*.h' -or -name '*.h' \)|||
+find /var/log/tmp -size +10M -ls|||find /var/log/tmp -size +10M -exec ls -l {} \;|||find /var/log/tmp -size +10M -exec ls -l -h {} \;|||
+find . -mindepth 2 -maxdepth 2 -mindepth 2 -type d | xargs -I {} ls -l -d {}|||find . -mindepth 2 -maxdepth 2 -type d | xargs -I {} ls -l -d {}|||ls -d ./*/ | xargs -i -I {} ls -l {} | sort -n -r | head - 2 | xargs -I {} ls -l -d {}|||
+ls -l -d echo|||ls -l echo|||ls -l -d -t echo|||
+find . -type f -exec ls -l {} \;|||find . -print | xargs -I {} ls {}|||find . -type f -print | xargs -I {} ls -l {}|||
+echo -e "The quick brown fox dog dog dog dog dog dog dog dog dog dog dog dog dog dog dog dog dog dog dog" | sort | uniq -c|||echo -e "The quick brown fox jumps dog dog dog dog dog dog dog dog dog dog dog dog dog dog dog dog dog dog" | sort | uniq -c|||echo -e "The quick brown fox lazy dog dog dog dog dog dog dog dog dog dog dog dog dog dog dog dog dog dog" | sort | uniq -c|||
+find /root_path -name "*.class" -printf "%h\n" | sort --unique|||find /root_path -name '*.class' -printf '%h\n' | sort --unique|||find /root_path -name *.class -printf '%h\n' | sort --unique|||
+find / -name "*.writable"|||find / -name "*-writable"|||find / -name "*" -print|||
+echo "id_rsa" | tee -a id_rsa|||ssh-keygen host id_rsa|||echo "id_rsa" | ssh id_rsa|||
+find . -type d -exec mkdir -p new-dir {} +|||find . -type d -exec mkdir new-dir {} +|||find . -type d | xargs -I {} mkdir {}/new-dir|||
+mkdir -p ./mime|||find . -type d -exec basename {} \; | tr '\n' '\n' | xargs -I {} dirname {} | sort | uniq -u | xargs -0 -I {} echo {|||find . -type d -exec basename {} \; | tr '\n' '\n' | xargs -n 1 -I {} dirname {} | xargs -I {} echo {}|||
+mkdir -p ~/temp/bluecove/target/|||mkdir -p $(dirname -- "~/temp/bluecove/target/")|||mkdir -p "~/temp/bluecove/target/"|||
+sort -m *.$suffix|||sort -m .$suffix|||sort $(ls *.$suffix)|||
+
+mount -t ext /dev/xvdf1 /vol|||mount -t ext ext4 /dev/xvdf1|||mount -t ext /dev/xvdf1 /vol1|||
+mount -t nifs /dev/mapper/myldm /mnt|||mount -t nifs none /dev/mapper/myldm /mnt|||mount -t nifs nifs /dev/mapper/myldm /mnt|||
+mount -t smbfs //username@server/share /users/username/smb/share|||mount -t smbfs //username/smb/share /users/username/smb/share|||mount -t smbfs /users/username/smb/share /users/username/smb/share|||
+gzip -d -c file.txt | grep -v /var/lib/docker/aufs/file.txt | grep -q /var/lib/docker/file.txt|||gzip -d -c file.txt | grep -v /var/lib/docker/aufs/file.txt|||gzip -d -c file.txt | grep -v /var/lib/docker/aufs/file.txt | grep -q /var/lib/docker/aufs/file.txt|||
+find . -name "*.php~" -exec mv {} /mydir \;|||find . -name "*.php~" -print0 | xargs -0 -I {} mv {} /mydir|||find . -type f -name "*.php~" -exec mv {} /mydir \;|||
+find . -name "*.Emacs" -exec mv {} ~/backups/ \;|||find . -name 'Emacs*' -exec mv {} ~/backups/ \;|||find . -name "*.Emacs" -exec mv {} ~/backups/backups/ \;|||
+mv /path/subfolder/* /path/|||mv /path/subfolder/.* /path/|||mv /path/subfolder/*.* /path/|||
+mv *.old ../old/|||mv ../old/ ../old/|||mv ../old/*.old ../old/|||
+find . -atime +1 -exec mv {} TMP \;|||find . -atime +1 -print0 | xargs -0 -I {} mv {} tmp|||find . -atime +1 -print0 | xargs -0 -I {} mv -t tmp {}|||
+find /tmp -name "file$1" -exec mv {} where$2 \;|||find /tmp -name "$1" -execdir mv {} where$2 \;|||find /tmp -name "file$1" -execdir mv {} where$2 \;|||
+tac table | sort -t , -k 2,2 -r|||tac table | sort -t , -k 2,2 -k 2,2|||tac table | sort -t , -k 2,2 -n|||
+shred -u -z -v /path/to/your/file|||shred -v -z -f /path/to/your/file|||shred -u -z -n /path/to/your/file|||
+comm -2 -3 file2 file1|||comm -2 -3 file1 file1|||
+cat $N | tr ',' ','|||echo $N | tr ',' ','|||echo -n $N | tr ',' ','|||
+find . -name file -exec echo {} \; -exec echo file {} \;|||find . \( -name file -prune \) -exec echo {} \; -exec echo file {} \;|||find . -name "file" -exec echo {} \; -exec echo file {} \;|||
+find /some/dir/if -maxdepth 1 -empty|||find /some/dir/if -maxdepth 0 -empty -exec echo {} \;|||find /some/dir/if -maxdepth 1 -empty -exec echo {} \;|||
+sort filename | uniq -c|||
+seq -f "." | fold -w 100|||seq -f '.' | fold -w 100|||yes '.' | fold -w 100 | head - 1|||
+seq -f "%c" %|||seq -f "%y/%__SP__UNK"|||seq -f '%i' %|||
+find other -mindepth 1 -maxdepth 1 -type d|||find other -mindepth 1 -type d|||find other -type d -exec echo other {} \;|||
+find sort_test -type f | env -i LC_COLLATE=C|||find sort_test -type f -exec echo sort_test {} \;|||find sort_test/ -type f -exec echo sort_test {} \;|||
+find ~/Music/ -name cover.* -exec ls -l {} \;|||find ~/Music/ -name cover.* -exec echo {} \;|||find ~/Music/ -name cover.* -exec ls {} \;|||
+seq 1 10 | tr -d ' '|||seq 1 10 | tr -d '\n'|||seq 1 10 | tr -d ' ' | tr ' ' '\n' | tr '\n' ' '|||
+cat He likes really? | tr '\n' '\n'|||cat He likes really? | tr ' ' '\n'|||echo "He likes cats really?" | tr ' ' '\n' | tr '\n' '\n'|||
+echo $(yes 1900 | tr '\n' '\n' '\n' | tr '\n' '\n' | head -n 1)|||echo $(yes 1900 | tr '\n' '\n' '\n' | tr '\n' '\n' | cut -d ' ' -f 1)|||echo $(yes 1900 | tr '\n' '\n' '\n' | tr '\n' '\n')|||
+comm -1 -2 ignore.txt input.txt|||comm -1 -3 ignore.txt input.txt|||comm -2 -3 ignore.txt input.txt|||
+cat ~/.ssh/config|||cat ~/.ssh/config | xargs -I {} cat {}|||cat ~/.ssh/config | xargs -n 1 -I {} echo ~/.ssh/config {}|||
+cat 1|||cat 1 | grep -E -o '[0-9]+[0-9]+[.][0-9]+[.][0-9][0-9][0-9][0-9]'|||cat 1 | grep -E -o '[0-9]+[0-9]+[.][0-9]+[.][0-9][0-9][0-9][0-9]+'|||
+tree -s|||find . -type f -exec ls -s {} \; | tr '\n' '\n' | xargs -0 -I {} chmod g+w {}|||find . -type f -exec ls -s {} \; | tr '\n' '\n' | xargs -0 -I {} chmod go+rx {}|||
+cal -h | cut -c 4-|||cal -h | cut -c 8-|||
+echo $(echo $$)|||jobs -p | xargs -I {} kill - 9 {}|||jobs -p | tr '\n' '\n'|||
+ls -d -1 $PWD/**/*|||ls -d -1 $PWD/**/*/*|||echo -n $(pwd)|||
+fold -w new|||cat orange | tr '\n' '\n' | fold -w new|||cat orange | tr '\n' '\n' | tr '\n' '\n'|||
+sort file1 file2 | uniq -u|||comm -1 -2 file1 file2|||comm -2 -3 file1 file2|||
+df|||df | cut -d / -f 1 | xargs -I {} du -c -h {} | tail -n 1|||df | cut -d / -f 1 | tr -s ' ' | cut -d ' ' -f 2 | xargs -I {} du -c -h {} | tail -n 1|||
+cat /dev/urandom | fold -w 32 | head -n 1|||cat /dev/urandom | tr -d -C '\n'|||cat /dev/urandom | tr -d -C '[:__SP__UNK:]'|||
+find xargstest/ -name file?B -exec head -n 1 {} \;|||find xargstest/ -name file?B -exec head - 1 {} \;|||find xargstest/ -name file?B -exec echo {} \;|||
+date -r "$1"|||date -r $(date -d "1 day ago" +%j)|||date -r $(date -d "yesterday" +%j)|||
+ls $(pwd)|||ls -d cat.wav | xargs -L 1 -I {} dirname {} | xargs -0 -I {} readlink -f {}|||ls cat.wav | xargs -L 1 -I {} dirname {} | xargs -0 -I {} readlink -f {}|||
+which cc|||echo cc | tr '\n' '\n' | xargs -I {} dirname {} | xargs -I {} dirname {} | xargs -I {} readlink -f {}|||echo cc | tr '\n' '\n' | xargs -I {} dirname {} | xargs -I {} dirname {} | xargs -0 -I {} readlink -f {}|||
+ps -e -f | grep -v 1 | tr -s ' ' | tr '\n' '\n' | tr '\n' '\n' | tr '\n' '\n'|||top -b -n 1 | tr -s ' ' | cut -d ' ' -f 4|||ps -e -f | grep -v 1 | tr -s ' ' | cut -d ' ' -f 4|||
+ifconfig|||ifconfig | tr ' ' '\n' | cut -d ' ' -f 1|||ifconfig | cut -d / -f 1 | tr -s ' ' | cut -d ' ' -f 1|||
+du -k -s * | sort -n -r|||du -k -s * | xargs -I {} du -c -h {} | sort -n -r | head -n 1|||du -k -s * | xargs -I {} du -c -h {} | sort -n -r | tail -n 1|||
+grep -n 'text' *.log | cut -d ' ' -f 2 | xargs -I {} grep -H -n 'text' {}|||grep -n 'text' *.log | cut -d ' ' -f 2 | xargs -I {} grep 'text' {}|||grep -n 'text' *.log | cut -d ' ' -f 2 | xargs -I {} cat {} | xargs -I {} grep "text" {}|||
+join -v 2 index <(sort strings)|||join -v 2 strings <(sort strings)|||join -v 2 index <(sort index)|||
+find .|||find . -print|||find . -print0 | xargs -0 -I {} ls {}|||
+find . -name .git -prune -or -print|||find . -name "*.git" -prune -or -print|||find . -name '*.git' -prune -or -print|||
+find . -type d -name .git -exec ls -l {} \;|||ls $(find . -name .git)|||find . -type d -name ".git" -exec ls -l -d {} \;|||
+find . -maxdepth 1 -mindepth 1 -type d|||find . -maxdepth 1 -type d ! -name ".*"|||find . -maxdepth 1 -type d -name ".*"|||
+ls -F -l -t -r *|||ls -F -l -t -l $(ls -1 | tr '[:upper:]' '[:lower:]')|||ls -F -l -d -t $(ls -1 | tr '[:upper:]' '[:lower:]')|||
+find . ! -size 0k|||find . -type f ! -size 0|||find . ! -empty -print0 | xargs -0 -I {} ls {}|||
+cd $(date "+%Y.84.168\24")|||scp -p $(date "+%Y.84.168\nPREFIX" {})|||cd $(date "+%Y.84.168\\24")|||
+seq 1 10 | tr -s ' ' | cut -d ' ' -f 2|||seq 1 10 | tr -s ' ' | cut -d " " -f 2- | tr ' ' '\n'|||seq 1 10 | tr -s ' ' | cut -d ' ' -f 2- | tr ' ' '\n'|||
+echo "$name" | tr -d '[:digit:]'|||echo "$name" | tr '[:upper:]' '[:digit:]'|||echo $name | tr '[:upper:]' '[:digit:]'|||
+ls -l | head - 2 | tail - 1|||ls -l | head - 2 | tail -n 1|||ls -l | head - 2 | head - 2 | tail - 1|||
+seq 1 10 | tr -d ' '|||seq 1 10 | tr -s ' ' | cut -d ' ' -f 4|||seq 10 | tr -s ' ' | cut -d ' ' -f 4|||
+echo var | rev | cut -d '/' -f 2- | rev|||echo var $(ls -1 | tr '[A-Z]' '[:digit:]')|||echo var $(ls -1 | tr '[:upper:]' '[:upper:]')|||
+cat *.php | wc -l|||wc -l $(find . -name "*.php")|||find . -name '*.php' | xargs -I {} wc -l {}|||
+paste a a b | sort -n b|||paste a b | sort -n b|||tail a b | sort -u|||
+comm -2 -3 second.txt first.txt|||comm -2 -3 first.txt first.txt|||comm -2 -3 second.txt second.txt|||
+diff -q -r /tmp/dir1 /tmp/dir1 /tmp/dir2|||diff -q -r /tmp/dir1 /tmp/dir2|||diff -q -r /tmp/dir1/ /tmp/dir1 /tmp/dir2|||
+echo $(basename $0)|||echo $(pwd)|||echo "$slashes" | tr ' ' '\n' | cut -d ' ' -f 2|||
+find your/dir -prune -empty|||find your/dir -prune -empty -exec echo {} \;|||find your/dir -prune -empty -type d|||
+read -s ENTERED_PASSWORD|||read -p "ENTERED_PASSWORD"|||read -s -p "ENTERED_PASSWORD"|||
+read -n 1 ans|||read -n 1|||read -n 1 -r|||
+read -p "Is this a good question ? " answer|||read -e -p "Is this a good question ? " answer|||read -p "Is this a good question question ? " answer|||
+read -p "Is this a good question ?" answer|||read -n 1 -p "Is this a good question ?" answer|||read -e -p "Is this a good question ?" answer|||
+find "$TMP" -type f -exec rm {} \;|||find $TMP -exec rm {} \;|||find "$TMP" -type f -exec rm -r -f {} \;|||
+chmod 777 theDirectory/|||chmod 777 theDirectory/ -R|||find theDirectory/ -type d -exec chmod 777 {} \; -exec chmod 777 {} \;|||
+chown -R apache:apache *|||chown -R apache:apache .|||chown -R andrewr:apache *|||
+chown -R tomcat7:tomcat7 webapps tomcat7 conf|||chown -R tomcat7:tomcat7 tomcat7 conf|||chown -R tomcat7:tomcat7 conf tomcat7|||
+chown -R user_name folder|||chown -R user_name:user_name folder|||find folder -exec chown user_name user_name user_name \; -exec chown -R user_name {} \;|||
+chown -R foo ./Camsoft|||chown -R Camsoft foo ./Camsoft|||chown -R foo ./foo|||
+find $2 -type f -exec bzip2 {} \;|||find $2 -exec gzip -9 {} \;|||find $2 -type f -exec gzip -9 {} \;|||
+cp -R Payload $appname.app|||cp -R $appname.app $appname.app|||cp -R $appname.app Payload|||
+cp -R -n include/gtest /usr/include|||cp -r -s include/gtest /usr/include|||cp -R -v -n include/gtest /usr/include|||
+rsync --recursive --exclude='exclude_pattern' --exclude='exclude_pattern' /to/where/|||find . ! -name "exclude_pattern" -exec cp {} /to/where/ \;|||find . ! -name "exclude_pattern" -print0 | xargs -0 -I {} cp -t /to/where/ {}|||
+find . -name "some_file_name.xml" -exec grep -H -n "PUT_YOUR_STRING_HERE" {} \;|||find . -name "*_file_name.xml" -exec grep -H -n "PUT_YOUR_STRING_HERE" {} \;|||find . -name "some_file_name.xml" | xargs -n 1 -I {} grep -i -H "PUT_YOUR_STRING_HERE" {}|||
+find . -name '*.c' | xargs -I {} grep 'class foo' {}|||find . -name '*.c' -print | xargs -I {} grep 'class foo' {}|||find . -name "*.c" | xargs -I {} grep "class foo" {}|||
+grep -r "word-1" directory-path|||grep -r -l "word-1" directory-path|||grep word-1 word-2 | tr '\n' 'word-2' | xargs -n 1 -I {} echo word-2 {}|||
+find /usr/local/{liblib/node{,{,,share,share/man/npm* | xargs -I {} rm -f {}|||find /usr/local/{liblib/node{,{,,bin,share/man/npm* | xargs -I {} rm -f {}|||find /usr/local/{liblib/node{,{,},share/man/npm* | xargs -I {} rm -f {}|||
+find . -name "*.pyc" -print0 | xargs -0 -I {} rm {}|||find . -name "*.pyc" -exec rm -f {} \;|||find . -name *.pyc -print0 | xargs -0 -I {} rm -r -f {}|||
+find /var/www/html/folder -name "_*" -exec rm -f {} \;|||find /var/www/html/folder -name "_*" -exec rm {} \;|||find /var/www/html/folder -name '_*' | xargs -I {} rm {}|||
+find . -name .svn -exec rm -r -f {} \;|||find . -name .svn -print0 | xargs -0 -I {} rm -r -f {}|||find . -name .svn -exec rm -r -f {} +|||
+find . -name "*.t1" -exec chown .t2 {} \;|||find . -name "*.t1" -exec chown t2 {} \;|||find . -name '*.t1' -exec chown .t2 {} \;|||
+find . \( -name .xml -prune -or -name '*.xml' -or -name '*.xml' \) -print|||find . -type f -not -name "*.xml" -print0 | xargs -0 -I {} rename 's/.xml/$/.xml/' {}|||find . -type f -not -name "*.xml" -print0 | xargs -0 -n 1 -I {} rename 's/.xml/' {}|||
+mount -o rw,remount //|||mount -o remount // //|||mount -o remount // -o remount,rw|||
+mount -o remount,remount /dev/sda7 /dev/sda7|||mount /dev/sda7 -o remount,ro|||mount /dev/sda7 -o remount,remount /dev/sda7|||
+mount -o remount,ro /path/to/chroot/jail/usr/bin /path/to/chroot/usr/bin|||mount -o remount,ro /path/to/chroot/usr/usr/bin /path/to/chroot/usr/bin|||mount -o remount,ro /path/to/chroot/jail/usr/bin /path/to/chroot/jail/bin|||
+mount -o remount,rw /system|||mount -o remount,remount /system|||mount -o remount /system|||
+find . -name *.swp -exec rm {} \;|||find . -name *.swp -print0 | xargs -0 -I {} rm {}|||find . -name "*.swp" -exec rm {} \;|||
+find $HOME -name core -exec rm {} \;|||find ~/ -name 'core' -exec rm {} \;|||find ~/ -name 'core*' -exec rm {} \;|||
+find . -type d -exec rm -r -f {} \;|||find . -type d -print0 | xargs -0 -I {} rm {}|||find . -type d -exec rm -r {} \;|||
+find . -type d -empty -exec rmdir {} \;|||find . -depth -empty -type d -exec rmdir {} \;|||find . -depth -type d -empty -exec rmdir {} \;|||
+find ~ -atime +7 -exec rm {} \;|||find ~ -atime +7 -name a.out -exec rm {} \;|||find ~ -atime +7 -name a.o -exec rm {} \;|||
+find . -name abc.xxx -exec rm {} \;|||find . -name "abc.xxx" -exec rm {} \;|||find . -name "abc.xxx" -exec rm -f {} \;|||
+find /home/user/Maildir/.SPAM -type f -exec rm {} \;|||find /home/user/Maildir/.SPAM -type f | xargs -I {} rm {}|||find /home/user/Maildir/../cur -type f -exec rm {} \;|||
+find js -name '*.js' | xargs -I {} rm {}|||find /js -name '*.js' | xargs -I {} rm {}|||find js -name "*.js" | xargs -I {} rm {}|||
+tr | tr '\n' '\n' | xargs -I {} rm {}|||tr | tr '\n' '\n' | tr '\n' '\n' | xargs -I {} rm {}|||tr | tr '\n' '\n' | tr '\n' '\n' | tr '\n' '\n' | xargs -I {} rm {}|||
+find . -name "*.txt" -exec rm -f {} \;|||find . -name "*.txt" -print0 | xargs -0 -I {} rm {}|||find . -name "*.txt" -print0 | xargs -0 -n 1 -I {} rm {}|||
+cat infile.txt | xargs -n 80 -I {} rm {}|||cat infile.txt | xargs -I {} rm {}|||cat infile.txt | xargs -n 1 -I {} rm {}|||
+rmdir --ignore-fail-on-non-empty __SP__UNK/__SP__UNK/__SP__UNK|||rmdir --ignore-fail-on-non-empty hides/__SP__UNK/__SP__UNK|||rmdir --ignore-fail-on-non-empty __SP__UNK/__SP__UNK.__SP__UNK|||
+find . -name *-*x*.* -exec rm {} \;|||rm *-*x*.*|||find . -name "*-*xx.*" -exec rm -f {} \;|||
+find /work -name core -exec rm {} \;|||find /work -name core -type f -print | xargs -I {} basename {}|||find /work -name core -exec rm -f {} \;|||
+mv bin/node-waf.pc share/man/nodejs1/node|||mv bin/node-waf.pc share/man/man.pc share/man/man.pc|||mv bin/node-waf.pc share/man/man1/node|||
+find . -inum 752010 -exec rm {} \;|||find . -inum 752010 -exec rm -i {} \;|||find / -inum 752010 -exec rm {} \;|||
+basename -- $(dirname -- "$path")|||basename -- "$path"|||basename -- $(dirname $path)|||
+echo "$3" | rev | cut -c 4- | rev | cut -c 4- | rev|||echo "$3" | rev | cut -c 4- | rev|||echo "$3" | rev | cut -c 4- | rev | cut -c 4- | rev | cut -c 4- | rev|||
+paste data.txt data.txt | xargs -I {} rm {}|||paste -s -d data.txt data.txt|||paste kpt.txt data.txt | xargs -I {} rm {}|||
+mv old tmp|||mv old old|||mv tmp old|||
+mv edited_blah.tmp /etc/blah|||mv edited_blah.tmp edited_blah.tmp|||mv edited_blah.tmp edited/blah|||
+join -t , text.txt text.txt | cut -d ' ' -f 1|||cut -d ' ' -f 1 text.txt | tr ' ' ' '|||join -t : text.txt text.txt | cut -d ' ' -f 1|||
+echo -e $(echo -n -e "${FOO_NO_WHITESPACE}" | wc -m)|||echo -e $(echo -n -e "${FOO_NO_WHITESPACE_WHITESPACE}" | wc -m)|||echo -e $(echo -e "${FOO_NO_WHITESPACE_WHITESPACE}" | wc -m)|||
+find / -name "*.php" -exec wc -l {} \;|||find / -type f -exec grep "processors" {} \; -exec wc -l {} \;|||find / -type f -exec echo processors {} \; | wc -l|||
+df -h .|||df -h $PWD|||df -h ./|||
+dig TXT myip.opendns.com myip1.opendns.com|||dig TXT myip.opendns.com myip.opendns.com|||dig -x myip.opendns.com myip.opendns.com|||
+echo $(pwd)|||echo -n $(pwd)|||ls -d -1 $PWD/**/*|||
+echo "$string" | cut -d ' ' -f 4|||echo "$string" | cut -d ' ' -f 1|||echo $(basename "$string")|||
+env | grep perl-v|||env | grep '^perl-v'|||env | xargs -i -I {} echo perl-v {} {}|||
+fold -w 100 ".[.][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"|||fold -w 100 ".[^ ][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"|||fold -w 100 ".[^ ][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"|||
+readlink -f $path|||readlink -f "$path"|||readlink -e $path|||
+dirname $(readlink -f "$month")|||echo $month | tr '[A-Z]' '[A-Z]'|||echo $month | tr '[A-Z]' '[:digit:]'|||
+readlink --canonicalize-existing "$0"|||readlink --canonicalize-existing "$me"|||dirname $(readlink -f "$0")|||
+which mktemp|||which mktemp | xargs -I {} readlink -f $(readlink -f "mktemp" {} | xargs -0 -I {} readlink -f {} | readlink /proc/proc/self/fd/MKTEMP)|||which mktemp | xargs -I {} readlink -f $(readlink -f "mktemp" {} | xargs -0 -I {} readlink -f {} | readlink /proc/self/fd/MKTEMP)|||
+which ~/f|||which foo|||which ~/f | xargs -I {} readlink -f $(readlink -f "~/f" {} | xargs -0 -I {} readlink -f {} | readlink -f "foo")|||
+crontab -u results $line | grep -E '_unknown|sciences|everyone|everyone|netaccounts|netaccounts|netaccounts|netaccounts|netaccounts|netaccounts|netaccounts|netaccounts|netaccounts|netaccounts|netaccounts|netaccounts|netaccounts|netaccounts|netaccounts|netaccounts'|||crontab -u results $line | grep -E '_unknown|sciences|everyone|everyone|netaccounts|netaccounts|netaccounts|netaccounts|netaccounts|netaccounts|netaccounts|netaccounts|netaccounts|netaccounts|netaccounts|netaccounts|netaccounts|netaccounts|netaccounts|netaccounts|netaccounts'|||
+whoami|||whoami | tr '[A-Z]' '[a-z]'|||whoami | tr 'A-Z' 'a-z'|||
+whoami|||whoami | tr '[A-Z]' '[a-z]'|||whoami | tr '[A-Z]' '[a-z][0-z]'|||
+find images -type f|||find images -type f -exec grep "images" {} \;|||find images -type f -exec grep -l "images" {} \;|||
+find research -type d ! -perm -111 -exec ls -l {} \;|||find research -mindepth 1 -maxdepth 1 -type d ! -perm -111 -exec ls -l {} \;|||find research -type d ! -path "*/research/*" ! -path "research/ian*" -type d -exec ls -l {} \;|||
+find ./bin -name "cp*"|||find ./bin -name 'cp*'|||find ./bin -name "cp"|||
+find . -name "*.log" -exec grep "The SAS System" {} \; -print|||find . -name "*.log" -print0 | xargs -0 -I {} grep "The SAS System" {}|||find . -name "*.log" -exec grep -H "The SAS System" {} \;|||
+find /home/weedly -name myfile -type f|||find /home/weedly -type f -name myfile|||find /home/weedly -type f -name "myfile*"|||
+find /mnt/raid/upload -mtime -7 -print|||find /mnt/raid/upload -mtime -7|||find /mnt/raid/upload -mtime -7 -type f|||
+find /path/to/directory -type f -mtime +61 -exec rm -f {} \;|||find /path/to/directory -type f -mtime 61 -exec rm -f {} \;|||find /path/to/directory -type f -mtime +61 -exec rm {} \;|||
+find /path/to/your/directory -type f \( -name "*.avi" -or -name "*.flv" \) -print|||find /path/to/your/directory -type f -name "*.avi"|||find /path/to/your/directory -type f \( -name "*.avi" -or -name "*.avi" \)|||
+find /tmp -type f|||find /tmp -type f -print|||find /tmp -type f -exec grep "TODO" {} \;|||
+find /var -name .*/tmp/.*[0-9]*.file|||find /var -maxdepth 1 -name '.*/tmp/.*[0-9]*.file'|||find /var -type f -regex ".*/tmp/.*[0-9]*.file"|||
+find /var/www/ -user apache|||find /var/www -user apache|||find /var/www/ -nouser -or -user apache|||
+find foo -path *.rb -type f -exec rm {} \;|||find foo -type f -name "*.rb" -exec grep -l "*.rb" {} \;|||find foo 3 \( -name '*.rb' -or -name '*.rb' \) -exec rm {} \;|||
+find . -name "*.java" -exec grep -H swt {} \;|||find . -name "*.java" -mtime 7 -exec grep -H -n "swt" {} \;|||find . -name "*.java" -mtime 7 -exec grep -H -n 'swt' {} \;|||
+find . -name "abc" -exec grep "xyz" {} \;|||find . -name abc -print | xargs -I {} grep "xyz" {}|||find . -name "abc" -print0 | xargs -0 -I {} grep "xyz" {}|||
+find . -name "*.html" -print | xargs -I {} grep "SearchString" {}|||find . -name "*.html" -print | grep -v "SearchString" | xargs -0 -I {} grep "SearchString" {}|||find . -name "*.html" -print | grep -v "SearchString" | xargs -I {} grep "SearchString" {}|||
+find . -name "*.SearchString"|||find . -name "*.SearchString" -exec grep SearchString {} \;|||find . -name '*.SearchString'|||
+find . -name "*.jpg" -print0 | xargs -0 -I {} rm -r -f {}|||find . -name "*.jpg" -print0 | xargs -0 -I {} rm {}|||find . -name "*.jpg" -exec rename 's/\.jpg$/' {} \;|||
+find . -name .svn -prune -or -name foo.cpp -print|||find . -path ./.cpp -prune -or -name foo.cpp -print|||find . -path ./foo.cpp -prune -or -name foo.cpp -print|||
+find . -name others -print|||find . -exec grep others {} \;|||find . -name 'others*'|||
+find . type -f -atime +2|||find . type -f -atime +2 | xargs -I {} tar -c -v -f $(find . -type f -atime +2 | xargs -I {} find {} -type f -atime +2)|||find . type -f -atime +2 | xargs -I {} tar -c -v -f $(find . -type f -atime +2 | xargs -I {} find {} -type f -atime +2 -type f)|||
+find . -name "*.rb" -type f|||find . -type f -name "*.rb" ! -name "*.rb"|||find . -name \*.rb -type f|||
+find . -name aaa -print|||find . -exec echo {} \;|||find . | xargs -I {} find {} -type f -exec chmod BBB {} \;|||
+find . -name "*string*"|||find . -iname "*string*"|||find . -name "*string*" -exec grep "string" {} \;|||
+find . -regex ".*myfile[0-9]\{1,2\}"|||find . -regex '.*myfile[0-9]\{1,2\}'|||find . -regex '.*myfile[0-9]{1,2\}'|||
+find . -name "accepted_hits.bam"|||find . -name accepted_hits.bam|||find . \( -name "accepted_hits.bam" -or -name "accepted_hits.bam" \)|||
+find . -type f -name "doc.txt" -exec echo found {} \;|||find . -type f -name doc.txt -exec echo found {} \;|||find . -name "doc.txt" -exec echo found {} \;|||
+find /home ! -name "ss"|||find /home ! -name ss -type f|||find /home ! -name "ss*"|||
+find $DIR -name "*.txt"|||find $DIR -name "*.txt" -print|||find $DIR -type f -name "*.txt"|||
+find /usr/local/man -name 'my*'|||find /usr/local/man /opt/man /opt/local/man -name "my*"|||find /usr/local/man /opt/man /opt/man /opt/local/man -name "my*"|||
+find /my_home -type f -name "*=123" -exec grep "vid=123" {} \; -print|||find /my_home -type f -name "*=123" -exec grep -l "vid=123" {} \;|||find /my_home -type f -name "*log.20140226*" -exec grep -l "vid=123" {} \;|||
+find . -type f -exec grep "/usr/bin/perl" {} \;|||find . -type f -exec echo /usr/bin/perl {} \;|||find . -type f -exec grep -l "/usr/bin/perl" {} \;|||
+find . -type f -exec grep magic {} \;|||find . -type f -print0 | xargs -0 -I {} grep magic {}|||find . -type f | xargs -I {} grep magic {}|||
+find . -name "*.txt" -exec grep mystring {} \;|||find . -name "*.txt" -print | xargs -I {} grep mystring {}|||find . -name "*.txt" -print0 | xargs -0 -I {} grep mystring {}|||
+find . -name '*.txt' -print0 | xargs -0 -I {} grep sometext {}|||find . -name '*.txt' | xargs -I {} grep sometext {}|||find . -name "*.txt" -exec grep -H sometext {} \;|||
+find . -name "*.[txt|TXT]" -exec grep -i "specific string" {} \;|||find . -name "*.[txt|TXT]" -exec grep -l "specific string" {} \;|||find . -name '*.[txt|TXT]' -exec grep -i 'specific string' {} \;|||
+find /home/weedly -type f -name "*.a"|||find /home/weedly -type f -name "*.a" -print|||find /home/weedly -type f -name '*.a'|||
+find . -name '*.C' | xargs -I {} grep 'chrome' {}|||find . -name "*.C" | xargs -I {} grep "text" {}|||find . -name "*.C" | xargs -I {} grep 'chrome' {}|||
+find / -type f -exec grep -H -n "$test" {} \;|||find / -type f -exec grep -H -n '$test' {} \;|||find / -type f -exec grep -H -n "$test" {} +|||
+find . -name "*.sh" -exec grep -i -l string {} \;|||find . -name "*.sh" | xargs -I {} grep "text" {}|||find . -name \*.script -exec grep -H -n '$test' {} \;|||
+find . -name "*.o" -exec echo {} \;|||find . -perm 664 -exec echo {} \;|||find . -name '*.o' -exec echo {} \;|||
+find /var/www -type f -name "access.log" -size +100M -exec grep -l StringBuffer {} \;|||find /var/www/ -type f -name "access.log" -size +100M -exec grep -l StringBuffer {} \;|||find /var/www -type f -name "access.log" -size +100M -exec grep -H "access.log" {} \;|||
+find /home/pat -name ".user.log"|||find ./.user.log -name ".user.log"|||find /home/pat -iname ".user.log"|||
+find . -name file -exec tee {} \;|||find . -name file | tee -a file|||find . -exec tee {} \;|||
+find /var/log -iname anaconda*|||find /var/log -name anaconda*|||find /var/log -iname "anaconda*"|||
+find /work -user ann -print|||find /work -user ann -name ann|||find /work -user ann -exec ls -l {} \;|||
+find /root/ -name myfile -type f -print | xargs -I {} grep myfile {}|||find /root -name myfile -type f -print|||find /root/ -name myfile -type f -print|||
+find /usr/src/linux -name '*.html' -exec grep foo {} \;|||find /usr/src/linux -name '*.html' -type f -exec grep -H foo {} \;|||find /usr/src/linux -name '*.html' -type f -exec grep foo {} \;|||
+find . -name '*git*' ! -name 'git' | xargs -I {} grep git {}|||find . -name '*git*' ! -name '*git*' | xargs -I {} grep git {}|||find . -name '*git*' ! -name 'git*' | xargs -I {} grep git {}|||
+find /etc -name "*.conf" | xargs -I {} grep "nameserver" {}|||find /etc -name "*.conf" | xargs -I {} grep nameserver {}|||find /etc -name "*.conf" | xargs -I {} grep 'nameserver' {}|||
+find /etc -type f -exec grep -H nameserver {} \;|||find /etc -type f -exec grep "nameserver" {} \; -print|||find /etc -type f -exec grep -l nameserver {} \;|||
+find . -atime +7 -print|||find . -atime +7 -exec ls -l {} \;|||find . -atime +7 -print | xargs -I {} grep '^use strict' {}|||
+find . -size +10c -print|||find . -size +10c -exec ls -l {} \;|||find . -size +10c -exec ls -l -h {} \;|||
+find ~ -name monfichier|||find ~ -name 'monfichier*'|||find ~ -iname 'monfichier*'|||
+find /usr -name called -print -exec echo {} \;|||find /usr -name called -type f -print|||find /usr -name called -print | xargs -I {} wc -l {}|||
+find /mydir -type f -name "*.each" -exec basename {} \;|||find /mydir -type f -name "*.each" -printf "%f\n"|||find /mydir -type f -name "*.each" ! -name "*.each"|||
+find folder_name -type f -name "your_text"|||find folder_name -type f -exec grep your_text {} \;|||find folder_name -type f -name 'your_text'|||
+kill $!|||kill $(readlink -f $0)|||kill $(readlink -e $0)|||
+kill - 0 screen/|||kill - __SP__UNK $(date "+%s")|||kill - 0 $(date "+%s")|||
+kill - __SP__UNK /var/run/DataBaseSynchronizerClient.pid|||kill - 9 /var/run/DataBaseSynchronizerClient.pid|||kill - 0 /var/run/DataBaseSynchronizerClient.pid|||
+find libetc -name '*.sh' -print0 | xargs -0 -I {} chmod a+x {}|||find libetc -name "*.sh" -print0 | xargs -0 -I {} chmod a+x {}|||find libetc -name "*.sh" -exec chmod 755 {} \;|||
+find foldername -type d -exec chmod 755 {} \;|||find /foldername -type d -exec chmod 755 {} \;|||find . -type d -exec chmod 755 {} \;|||
+find foldername -exec chmod 644 {} \;|||find foldername -type f -exec chmod 644 {} \;|||find /foldername -type f -exec chmod 644 {} \;|||
+find img/ -name '*img*' -exec chmod 644 {} \;|||find img -name '*img*' -exec chmod 644 {} \;|||find img/ -type f -name '*img*' -exec chmod 644 {} \;|||
+basename "$architecture"|||echo "$architecture" | tr ' ' '\n' | xargs -n 1 -I {} echo architecture_64 {}|||echo "$architecture" | tr ' ' '\n' | tr '\n' ' '|||
+find / -size +100M|||find / -size +100M -exec ls -l -h {} \;|||find / -size +100M -exec ls -l -s {} \;|||
+find . -mtime +31|||find . -mtime +31 -exec ls -l {} \;|||find / -mtime +31 -exec ls -l {} \;|||
+tar -c -v -f .bz2 file.bz2|||tar -c -v -f .bz2 .bz2|||tar -c -z -f .bz2 file.bz2|||
+find . -mindepth 1 -maxdepth 1 -type d -printf "%P\n"|||find . -mindepth 1 -maxdepth 1 -mindepth 1 -type d -printf "%P\n"|||find . -mindepth 1 -maxdepth 1 -type d | xargs -I {} readlink -f {}|||
+sleep 10|||sleep 10 | xargs -I {} echo sleep2 | xargs -I {} bzip2 {}|||sleep 10 | xargs -I {} date '+%s-%m-%d %H:%M:%S' -I {} -f 2-|||
+split -b 10 input.txt /tmp/split-file|||split -b 10 input.txt input.txt|||split -l 10 input.txt /tmp/split-file|||
+split -l 75|||xargs -n 1 -I {} split -l 75 {}|||
+ssh -i ssh.myhost.net myusername -p "mkdir -p $2"|||ssh -i ssh.myhost.net -p "mkdir -p.net" myusername|||ssh -i ssh.myhost.net myusername -p "mkdir -p myhost.net"|||
+ssh -t ${SSH_COMMAND}|||ssh ${SSH_COMMAND}|||ssh -p ${SSH_COMMAND} ${SSH_COMMAND}|||
+echo $pathname | cut -d '.' -f 2-|||echo $(basename "$pathname")|||echo $pathname | tr '\n' '\n' | cut -d '.' -f 2-|||
+echo $output | tr -d '\n'|||echo $output | tr -d '[:digit:]'|||echo $output | tee $output|||
+gzip -d -c data.tar.gz | tar -x|||gzip -d -c data.tar.gz | tar -x -f -|||zcat data.tar.gz | tar -x|||
+find . -name '*.jar' -exec grep -i 'needle' {} \;|||find . -name '*.jar' | xargs -I {} grep "jar" {}|||find . -name "*.jar" -exec grep -H -n "$test" {} \;|||
+zcat file.tar.gz | tar -x|||gunzip -c file.tar.gz|||gunzip -c file.tar.gz | tar -x|||
+zcat myarchive.tar.gz | tar -x|||gunzip -c myarchive.tar.gz | tar -x|||zcat myarchive.tar.gz | tar -x -v -f -|||
+echo $BYTES | wc -c|||echo "$BYTES" | wc -c|||echo "$BYTES" | tr '\n' '\n' | xargs -n 1 -I {} echo {}|||
+echo "Some console and log file message" | tee -a /dev/fd/3|||echo "Some console and log log file message" | tee -a /dev/fd/3|||echo "Some console and and file message" | tee -a /dev/fd/3|||
+echo "deb blah ..  blah" | tee -a /etc/apt/sources.list|||echo "deb blah .. blah" | tee -a /etc/apt/sources.list|||echo "deb blah ... blah" | tee -a /etc/apt/sources.list|||
+cat infile | paste -s -d ' '|||cat infile | paste -s -d "," -|||cat infile | paste -s -d ',\n'|||
